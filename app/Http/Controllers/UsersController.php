@@ -171,29 +171,9 @@ class UsersController extends Controller
             $users = implode(',', $requestData->users);
             $changepasswords = implode(',', $requestData->changepasswords);
             $permissions = implode(',', $requestData->permissions);
-            $depots = implode(',', $requestData->depots);
-            $bus_types = implode(',', $requestData->bus_types);
-            $services = implode(',', $requestData->services);
-            $vehicles = implode(',', $requestData->vehicles);
-            $shifts = implode(',', $requestData->shifts);
-            $stops = implode(',', $requestData->stops);
-            $routes = implode(',', $requestData->routes);
-            $duties = implode(',', $requestData->duties);
-            $targets = implode(',', $requestData->targets);
-            $trips = implode(',', $requestData->trips);
-            $fares = implode(',', $requestData->fares);
-            $concession_fare_slabs = implode(',', $requestData->concession_fare_slabs);
-            $concessions = implode(',', $requestData->concessions);
-            $trip_cancellation_reasons = implode(',', $requestData->trip_cancellation_reasons);
-            $inspector_remarks = implode(',', $requestData->inspector_remarks);
-            $payout_reasons = implode(',', $requestData->payout_reasons);
-            $denominations = implode(',', $requestData->denominations);
-            $pass_types = implode(',', $requestData->pass_types);
-            $crew_details = implode(',', $requestData->crew_details);
-            $ETM_details = implode(',', $requestData->ETM_details);
-           PermissionDetail::where('user_id',$id)->update(['role_id' => $requestData->role_id,'created_by'=>$created_by,'users'=>$users,'changepasswords'=>$changepasswords,'permissions'=>$permissions,'depots'=>$depots,'bus_types'=>$bus_types,'services'=>$services,'vehicles'=>$vehicles
-            ,'shifts'=>$shifts,'stops'=>$stops,'routes'=>$routes,'duties'=>$duties,'targets'=>$targets,'trips'=>$trips,'fares'=>$fares,'concession_fare_slabs'=>$concession_fare_slabs,'concessions'=>$concessions,'trip_cancellation_reasons'=>$trip_cancellation_reasons
-           ,'inspector_remarks'=>$inspector_remarks,'payout_reasons'=>$payout_reasons,'denominations'=>$denominations,'pass_types'=>$pass_types,'crew_details'=>$crew_details,'ETM_details'=>$ETM_details]);     
+            $donations = implode(',', $requestData->donations);
+           
+           PermissionDetail::where('user_id',$id)->update(['role_id' => $requestData->role_id,'created_by'=>$created_by,'users'=>$users,'changepasswords'=>$changepasswords,'permissions'=>$permissions,'donations'=>$donations]);     
            //  $permission->fill($input)->save();
       
        $user = User::findorFail($id);

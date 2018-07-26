@@ -21,97 +21,31 @@ return [
         'user' => 'User',
         'changepassword' => 'Change Password',
     ],
-    'depots' =>  [
-        'title' => 'Depot'
-      ],
-    'bus_types' =>  [
-        'title' => 'Bus Type'
-     ],
+    'donations' =>  [
+        'title' => 'All Donation'
+      
+    ],
+    'blessings' =>  [
+        'title' => 'All Blessings'
+      
+    ],
+    'registers' =>  [
+        'title' => 'All Users'       
+    ],
+    'orders' =>  [
+        'title' => 'All Order'      
+    ],
+    
    'settings' =>  [
         'title' => 'Settings',
         'overall' => 'Miscellaneous Settings',
         'roles' => 'Role Management',
         'permissions' => 'Role and permission',
      ],
-   'ETM_details' =>  [
-        'title' => 'ETM details',
-     
-     ],
+  
     
-    
-    
-    'vehicles' =>  [
-        'title' => 'Vehicle',
-     
-     ],
-    'shifts' =>  [
-        'title' => 'Shift',
-     
-     ],
-    
-    'stops' =>  [
-        'title' => 'Stop',
-     
-     ],
-    
-    'routes' =>  [
-        'title' => 'Route',
-     
-     ],
-    'duties' =>  [
-        'title' => 'Duty',
-     
-     ],
-    'trips' =>  [
-        'title' => 'Trip',
-     
-     ],
-    'fares' =>  [
-        'title' => 'Fare',
-     
-     ],
-    'concession_fare_slabs' =>  [
-        'title' => 'Concession Fare Slab',
-     
-     ],
-    'concessions' =>  [
-        'title' => 'Concession',
-     
-     ],
-    
-    'targets' =>  [
-        'title' => 'Target',
-     
-     ],
-   
-    'trip_cancellation_reason' =>  [
-        'title' => 'Trip Cancellation Reason',
-     
-     ],
-    'inspector_remarks' =>  [
-        'title' => 'Inspector Remarks',
-     
-     ],
-    'payout_reasons' =>  [
-        'title' => 'Payout Reasons',
-     
-     ],
-    'denominations' =>  [
-        'title' => 'Denominations',
-     
-     ],
-    'pass_types' =>  [
-        'title' => 'Pass Type',
-     
-     ],
-    'crew_details' =>  [
-        'title' => 'Crew Details',
-     
-     ],
      
     'signout' => 'Sign Out',
     
-    'calendar' => [
-        'title' => 'Manage Calendar',
-    ],
+   
 ];

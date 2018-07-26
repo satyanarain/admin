@@ -179,23 +179,7 @@ function headingMain() {
         echo "List of All " . ucwords($segments_value);
     }
 }
-function headingMainOrder() {
-    $segments = '';
-    $segments = Request::segments();
-    if (count($segments) >= 2) {
-        if (is_numeric($segments[1])) {
-            $segments_value = str_replace("_", " ", $segments[0]);
-        echo substr(ucwords($segments_value), 0, -1) . " Update";
-        } else {
-            $segments_value = str_replace("_", " ", $segments[0]);
-            echo ucwords($segments[1]) . " " . substr(ucwords($segments_value), 0, -1);
-        }
-    } else {
-        
-        $segments_value = str_replace("_", " ", $segments[0]);
-        echo substr(ucwords($segments_value),0,-1);
-    }
-}
+
 
 function PopUpheadingMain($result) {
     $segments = '';
@@ -264,6 +248,15 @@ if(in_array('view',$array_all)){
  return false;
 }
 }
+function dateViewWithTime($date_blank) {
+    if ($date_blank == "0000-00-00" || $date_blank == '') {
+        echo "N/A";
+    } else {
+        echo $date_blank = date("d-m-Y H:i:s", strtotime($date_blank));
+        ;
+    }
+
+}
 
 function actionEdit($action = '', $id = '',$status='') {
  $segments = '';
@@ -277,16 +270,16 @@ function actionEdit($action = '', $id = '',$status='') {
           <?php  if(in_array('edit',$array_all)){ ?>
              <a  href="<?php echo route($segments[0] . "." . $action, $id) ?>" class="btn btn-small btn-primary-edit" ><span class="glyphicon glyphicon-pencil"></span>&nbsp;Edit</a>&nbsp;&nbsp;&nbsp;&nbsp;
           <?php } ?>
-    <?php if($segments[0]=='users'){?>
+    <?php if($segments[0]=='users' || $segments[0]=='registers'){?>
                <?php  if(in_array('view',$array_all)){ ?>
               <a  class="btn btn-small btn-primary" href="<?php echo route('users.show', $id); ?>" ><span class="glyphicon glyphicon-search"></span>&nbsp;View</a>&nbsp;&nbsp;&nbsp;&nbsp;
                       <?php } ?>
                   <?php }else{ ?>
                 <?php  if(in_array('view',$array_all)){ ?>
-               <button  class="btn btn-small btn-primary"  data-toggle="modal" data-target="#<?php echo $id ?>"  onclick="viewDetails(<?php echo $id ?>,'view_detail');"><span class="glyphicon glyphicon-search"></span>&nbsp;View</button>&nbsp;&nbsp;&nbsp;&nbsp;
+               <button  class="btn btn-small btn-primary"   onclick="viewDetails(<?php echo $id ?>,'view_detail');"><span class="glyphicon glyphicon-search"></span>&nbsp;View</button>&nbsp;&nbsp;&nbsp;&nbsp;
               <?php } ?>
                <?php } ?>
-              <?php if($segments[0]=='users'){?>
+              <?php if($segments[0]=='users' || $segments[0]=='donations'){?>
              <div 
                  <?php if($status==1)
                  { ?>
@@ -294,7 +287,7 @@ function actionEdit($action = '', $id = '',$status='') {
                <?php }else{ ?>
                     class="btn btn-small btn-danger" 
               <?php } ?>
-                 id="<?php echo $id; ?>" onclick="statusUpdate(this.id)">
+                 id="<?php echo $id; ?>" onclick="statusUpdate(this.id,'<?php echo $segments[0];?>')">
                    <?php if($status==1)
                  { ?>
                     <span id="<?php echo "ai".$id; ?>"><i class="fa fa-check-circle"></i>&nbsp;Active</span>

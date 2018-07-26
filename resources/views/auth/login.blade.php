@@ -5,7 +5,7 @@
 <!--[if IE 9 ]>    <html lang="en" class="no-js ie9"> <![endif]-->
 <!--[if (gt IE 9)|!(IE)]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
     <head>
-   <title>Qixtix | AFC</title>
+   <title>GNS</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -28,8 +28,7 @@
                  <div class="row">
                      <div class="col-sm-6 col-md-4 col-md-offset-4">
                          <div class="account-wall">
-                             <img class="profile-img" src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=120"
-                                  alt="">
+                             {{Html::image('images/guru.jpg','alt',array('class'=>'profile-img')),'class=profile-img'}}
                              <form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">
                                  {!! csrf_field() !!}
                                 @if(Session::has('flash_message'))

@@ -27,7 +27,7 @@ if($segments_var[2]=='edit')
         @endif
         <meta charset="UTF-8">
         <meta name="csrf-token" content="{{ csrf_token() }}">
-         <title>Qixtix | AFC</title>
+         <title>GNS</title>
         <link rel="icon" type="image/png" sizes="16x16" href="{{url('images/favicon-16x16.png')}}">
         <script src="{{ asset(elixir('js/jquery-2.2.3.min.js')) }}"></script>
         <link rel="stylesheet" href="{{ asset(elixir('css/bootstrap.min.css')) }}">
@@ -87,7 +87,7 @@ if($segments_var[2]=='edit')
             <!-- Logo -->
             <a href="index2.html" class="logo">
              
-                <span class="logo-lg"><b>Qixtix(AFC)</span>
+                <span class="logo-lg"><b>{{Html::image('images/logo.png','',array('class'=>'logo'))}}</span>
             </a>
             <!-- Header Navbar: style can be found in header.less -->
             <nav class="navbar navbar-static-top">

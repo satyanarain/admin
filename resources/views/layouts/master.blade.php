@@ -19,7 +19,7 @@ if($segments_var[2]=='edit')
 
 ?>
 
-@if(is_numeric(end($segments_var)) && empty($segments_var[2]) && $segments_var[0]=='users')
+@if(is_numeric(end($segments_var)) && empty($segments_var[2]) && $segments_var[0]=='users' || $segments_var[0]=='registers')
 @include('layouts.app')
 @else
 @if($segments_var[1]=='previous')

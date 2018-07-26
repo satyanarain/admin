@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'AFC'),
+    'name' => env('APP_NAME', 'GNS'),
 
     /*
     |--------------------------------------------------------------------------
@@ -174,12 +174,13 @@ return [
         /*
          * Application Service Providers...
          */
+        Intervention\Image\ImageServiceProvider::class,
         App\Providers\AppServiceProvider::class,
         App\Providers\AuthServiceProvider::class,
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-       
+       Yajra\DataTables\DataTablesServiceProvider::class,
         Fenos\Notifynder\NotifynderServiceProvider::class,
         App\Providers\AccessServiceProvider::class,
         App\Providers\BroadcastServiceProvider::class,
@@ -237,11 +238,11 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'Notifynder' => Fenos\Notifynder\Facades\Notifynder::class,
-        
+        'DataTables' => Yajra\DataTables\Facades\DataTables::class,
         'Entrust'   => Zizaco\Entrust\EntrustFacade::class,
         'Form' => Collective\Html\FormFacade::class,
         'HTML' => Collective\Html\HtmlFacade::class,
-
+        'Image' => Intervention\Image\Facades\Image::class
 
     ],
 

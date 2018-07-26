@@ -30,27 +30,8 @@
                                 {{ menuCreate('users','create','edit','view',$value->id,$value->users)}}
                                 {{ menuCreate('changepasswords','create','edit','view',$value->id,$value->changepasswords)}}
                                 {{ menuCreate('permissions','create','edit','view',$value->id,$value->permissions) }}
-                                {{  menuCreate('depots','create','edit','view',$value->id,$value->depots) }}
-                                {{ menuCreate('bus_types','create','edit','view',$value->id,$value->bus_types)}}
-                                {{ menuCreate('services','create','edit','view',$value->id,$value->services)}}
-                                {{ menuCreate('vehicles','create','edit','view',$value->id,$value->vehicles)}}
-                                {{ menuCreate('shifts','create','edit','view',$value->id,$value->shifts)}}
-                                {{ menuCreate('stops','create','edit','view',$value->id,$value->stops)}}
-                                {{ menuCreate('routes','create','edit','view',$value->id,$value->routes)}}
-                                {{ menuCreate('duties','create','edit','view',$value->id,$value->duties)}}
-                                {{ menuCreate('targets','create','edit','view',$value->id,$value->targets)}}
-                                {{ menuCreate('trips','create','edit','view',$value->id,$value->trips)}}
-                                {{ menuCreate('fares','create','edit','view',$value->id,$value->fares)}}
-                                {{ menuCreate('concession_fare_slabs','create','edit','view',$value->id,$value->concession_fare_slabs)}}
-                                {{ menuCreate('concessions','create','edit','view',$value->id,$value->concessions)}}
-                                {{ menuCreate('trip_cancellation_reasons','create','edit','view',$value->id,$value->trip_cancellation_reasons)}}
-                                {{ menuCreate('inspector_remarks','create','edit','view',$value->id,$value->inspector_remarks)}}
-                                {{ menuCreate('payout_reasons','create','edit','view',$value->id,$value->payout_reasons)}}
-                                {{ menuCreate('denominations','create','edit','view',$value->id,$value->denominations)}}
-                                {{ menuCreate('pass_types','create','edit','view',$value->id,$value->pass_types)}}
-                                {{ menuCreate('crew_details','create','edit','view',$value->id,$value->crew_details)}}
-                               
-                            </table> 
+                                {{  menuCreate('donations','create','edit','view',$value->id,$value->donations) }}
+                                </table> 
                         </div>
                     </div>
                     <div   class="formmain" onclick="showHide(this.id)" id="ACC2{{$value->id}}">

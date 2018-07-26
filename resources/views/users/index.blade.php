@@ -44,28 +44,28 @@
 </div>
 
 <script type="text/javascript">
- function statusUpdate(id)
-{
- $.ajax({
-    type:'get',
-    url:'/users/statusupdate/'+id,
-   success:function(data)
-    {
-   
-    if(data==1)
-    {
-    $("#"+id).removeClass('btn-danger');   
-    $("#"+id).addClass('btn-success');  
-    $("#ai"+id).html('Active');    
-    }else{
-    $("#"+id).removeClass('btn-success');   
-    $("#"+id).addClass('btn-danger');    
-    $("#ai"+id).html('Inactive');    
-    }
-    
-    }
-});
-}  
+// function statusUpdate(id)
+//{
+// $.ajax({
+//    type:'get',
+//    url:'/users/statusupdate/'+id,
+//   success:function(data)
+//    {
+//   
+//    if(data==1)
+//    {
+//    $("#"+id).removeClass('btn-danger');   
+//    $("#"+id).addClass('btn-success');  
+//    $("#ai"+id).html('Active');    
+//    }else{
+//    $("#"+id).removeClass('btn-success');   
+//    $("#"+id).addClass('btn-danger');    
+//    $("#ai"+id).html('Inactive');    
+//    }
+//    
+//    }
+//});
+//}  
     
     
 </script>

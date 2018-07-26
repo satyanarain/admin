@@ -6,7 +6,7 @@
         @endif
         <meta charset="UTF-8">
         <meta name="csrf-token" content="{{ csrf_token() }}">
-         <title>Qixtix | AFC</title>
+         <title>GNS</title>
         <link rel="icon" type="image/png" sizes="16x16" href="{{url('images/favicon-16x16.png')}}">
         <script src="{{ asset(elixir('js/jquery-2.2.3.min.js')) }}"></script>
         <link rel="stylesheet" href="{{ asset(elixir('css/bootstrap.min.css')) }}">
@@ -61,7 +61,7 @@ echo json_encode([
             <!-- Logo -->
             <a href="index2.html" class="logo">
              
-                <span class="logo-lg"><b>Qixtix(AFC)</span>
+                <span class="logo-lg"><b>{{Html::image('images/logo.png','',array('class'=>'logo'))}}</span>
             </a>
             <!-- Header Navbar: style can be found in header.less -->
             <nav class="navbar navbar-static-top">
@@ -133,7 +133,7 @@ echo json_encode([
                     
                     @php $pem=menuDisplayByUser($result, 'users','view'); @endphp
                     @if($pem=='true')
-                  <li @if($segments_var[0]=='users') class="treeview active" @else class="treeview" @endif>
+<!--                  <li @if($segments_var[0]=='users') class="treeview active" @else class="treeview" @endif>
                         <a href="#">
                             <i class="fa fa-user"></i> <span>User Management</span>
                             <span class="pull-right-container">
@@ -145,141 +145,83 @@ echo json_encode([
                                     <i class="fa fa-users"></i> @lang('menu.users.user') 
                                 </a></li>
                           </ul>
-                    </li>
+                    </li>-->
                     @endif
-                    
-                  <li @if($segments_var[0]=='depots') class="treeview active" @else class="treeview" @endif>
+                    <li @if($segments_var[0]=='donations') class="treeview active" @else class="treeview" @endif>
                         <a href="#">
-                            <i class="fa fa-bus"></i> <span>Manage Masters</span>
+                            <i class="fa fa-user"></i> <span>Manage Registered Users</span>
                             <span class="pull-right-container">
                                 <i class="fa fa-angle-left pull-right"></i>
                             </span>
                         </a>
                         @php
-$array= array('depots','bus_types','services','vehicles','shifts','stops','routes','duties','targets','trips','fares','concession_fare_slabs'
-,'concessions','trip_cancellation_reasons','inspector_remarks','payout_reasons','denominations','pass_types','crew_details','')
+                       $array= array('registers')
                        @endphp
                         <ul @if(in_array($segments_var[0],$array)) class="treeview-menu active" style="display:block" @else class="treeview-menu" @endif>
-                             
-                          @if(menuPermission('depots')==1)
-                          <li @if($segments_var[0]=='depots') class="active" @endif><a href="{{route('depots.index')}}">
-                                    <i class="fa fa-bus"></i> @lang('menu.depots.title')
-                             </a>
+                            @if(menuPermission('donations')==1)
+                           <li @if($segments_var[0]=='donations') class="active" @endif><a href="{{route('registers.index')}}">
+                                    <i class="fa fa-user"></i> @lang('menu.registers.title') </a>
                            </li>
-                           @endif
-                            @if(menuPermission('bus_types')==1)
-                            <li @if($segments_var[0]=='bus_types') class="active" @endif><a href="{{route('bus_types.index')}}">
-                                    <i class="fa fa-bus"></i> @lang('menu.bus_types.title') 
-                            </a>
-                           </li>
-                            @endif
-                            @if(menuPermission('services')==1)
-                            <li @if($segments_var[0]=='services') class="active" @endif><a href="{{route('services.index')}}">
-                                    <i class="fa fa-briefcase"></i> @lang('menu.services.title') 
-                            </a>
-                            </li>
-                           @endif
-                            @if(menuPermission('vehicles')==1)
-                             
-                            <li @if($segments_var[0]=='vehicles') class="active" @endif><a href="{{route('vehicles.index')}}">
-                                    <i class="fa fa-bus"></i> @lang('menu.vehicles.title') 
-                            </a>
-                            </li>
-                                @endif
-                            @if(menuPermission('shifts')==1)
-                            <li @if($segments_var[0]=='shifts') class="active" @endif><a href="{{route('shifts.index')}}">
-                                    <i class="fa fa-calendar"></i> @lang('menu.shifts.title') 
-                            </a>
-                                     @endif
-                            @if(menuPermission('stops')==1)
-                            <li @if($segments_var[0]=='stops') class="active" @endif><a href="{{route('stops.index')}}">
-                                    <i class="fa fa-bus"></i> @lang('menu.stops.title') 
-                            </a>
-                                     @endif
-                            @if(menuPermission('routes')==1)
-                            <li @if($segments_var[0]=='routes') class="active" @endif><a href="{{route('routes.index')}}">
-                                    <i class="fa fa-map-marker"></i> @lang('menu.routes.title') 
-                            </a>
-                             </li>
-                                 @endif
-                            @if(menuPermission('duties')==1)
-                            <li @if($segments_var[0]=='duties') class="active" @endif><a href="{{route('duties.index')}}">
-                                    <i class="fa fa-file"></i> @lang('menu.duties.title') 
-                            </a>
-                            </li>
-                                @endif
-                            @if(menuPermission('targets')==1)
-                            <li @if($segments_var[0]=='targets') class="active" @endif><a href="{{route('targets.index')}}">
-                                    <i class="fa fa-bullseye"></i> @lang('menu.targets.title') 
-                            </a>
-                            @endif
-                            @if(menuPermission('trips')==1)
-                            <li @if($segments_var[0]=='trips') class="active" @endif><a href="{{route('trips.index')}}">
-                                    <i class="fa fa-tripadvisor"></i> @lang('menu.trips.title') 
-                            </a>
-                            @endif
-                            @if(menuPermission('fares')==1)   
-                            <li @if($segments_var[0]=='fares') class="active" @endif><a href="{{route('fares.index')}}">
-                                    <i class="fa fa-inr"></i> @lang('menu.fares.title') </a>
-                           </li>
-                               @endif
-                            @if(menuPermission('concession_fare_slabs')==1)
-                           <li @if($segments_var[0]=='concession_fare_slabs') class="active" @endif><a href="{{route('concession_fare_slabs.index')}}">
-                                    <i class="fa fa-inr"></i> @lang('menu.concession_fare_slabs.title') </a>
-                           </li>
-                               @endif
-                            @if(menuPermission('concessions')==1)
-                           <li @if($segments_var[0]=='concessions') class="active" @endif><a href="{{route('concessions.index')}}">
-                                    <i class="fa fa-inr"></i> @lang('menu.concessions.title') </a>
-                           </li>
-                               @endif
-                            @if(menuPermission('trip_cancellation_reasons')==1)
-                           <li @if($segments_var[0]=='trip_cancellation_reasons') class="active" @endif><a href="{{route('trip_cancellation_reasons.index')}}">
-                                    <i class="fa fa-inr"></i> @lang('menu.trip_cancellation_reason.title') </a>
-                           </li>
-                            @endif
-                            @if(menuPermission('inspector_remarks')==1)
-                           <li @if($segments_var[0]=='inspector_remarks') class="active" @endif><a href="{{route('inspector_remarks.index')}}">
-                                    <i class="fa fa-user"></i> @lang('menu.inspector_remarks.title') </a>
-                           </li>
-                            @endif
-                            @if(menuPermission('payout_reasons')==1)
-                           <li @if($segments_var[0]=='payout_reasons') class="active" @endif><a href="{{route('payout_reasons.index')}}">
-                                    <i class="fa fa-cc-mastercard"></i> @lang('menu.payout_reasons.title') </a>
-                           </li>
-                               @endif
-                            @if(menuPermission('denominations')==1)
-                           <li @if($segments_var[0]=='denominations') class="active" @endif><a href="{{route('denominations.index')}}">
-                                    <i class="fa fa-plus"></i> @lang('menu.denominations.title') </a>
-                           </li>
-                               @endif
-                            @if(menuPermission('pass_types')==1)
-                           <li @if($segments_var[0]=='pass_types') class="active" @endif><a href="{{route('pass_types.index')}}">
-                                    <i class="fa fa-lock"></i> @lang('menu.pass_types.title') </a>
-                           </li>
-                               @endif
-                            @if(menuPermission('crew_details')==1)
-                           <li @if($segments_var[0]=='crew_details') class="active" @endif><a href="{{route('crew_details.index')}}">
-                                    <i class="fa fa-eye"></i> @lang('menu.crew_details.title') </a>
-                           </li>
-                             @endif
+                            @endif 
                          </ul>
-                    </li>
-                    @php $pem=menuDisplayByUser($result, 'ETM_details','view'); @endphp
-                    @if($pem=='true')
-                     <li  @if($segments_var[0]=='ETM_details') class="treeview active" @else class="treeview" @endif>
+                      
+                    </li> 
+                  <li @if($segments_var[0]=='donations') class="treeview active" @else class="treeview" @endif>
                         <a href="#">
-                            <i class="fa fa-calculator" aria-hidden="true"></i> <span>@lang('menu.ETM_details.title')</span>
+                            <i class="fa fa-gift"></i> <span>Manage Donation</span>
                             <span class="pull-right-container">
                                 <i class="fa fa-angle-left pull-right"></i>
                             </span>
                         </a>
-                        <ul @if($segments_var[0]=='ETM_details') class="treeview-menu active" style="display:block" @else class="treeview-menu" @endif>
-                         <li @if($segments_var[0]=='ETM_details') class="active" @endif><a href="{{route('ETM_details.index')}}"><i class="fa fa-calculator"></i>@lang('menu.ETM_details.title')</a>
-                            </li>
+                        @php
+                       $array= array('depots','donations','orders')
+                       @endphp
+                        <ul @if(in_array($segments_var[0],$array)) class="treeview-menu active" style="display:block" @else class="treeview-menu" @endif>
+                            @if(menuPermission('donations')==1)
+                           <li @if($segments_var[0]=='donations') class="active" @endif><a href="{{route('donations.index')}}">
+                                    <i class="fa fa-gift"></i> @lang('menu.donations.title') </a>
+                           </li>
+                            @endif 
+                         </ul>
+                      
+                    </li>
+                  <li @if($segments_var[0]=='orders') class="treeview active" @else class="treeview" @endif>
+                        <a href="#">
+                            <i class="fa fa-gift"></i> <span>Manage Order</span>
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                        </a>
+                        @php
+                       $array= array('orders')
+                       @endphp
+                        <ul @if(in_array($segments_var[0],$array)) class="treeview-menu active" style="display:block" @else class="treeview-menu" @endif>
+                            @if(menuPermission('orders')==1)
+                           <li @if($segments_var[0]=='orders') class="active" @endif><a href="{{route('orders.index')}}">
+                                    <i class="fa fa-gift"></i> @lang('menu.orders.title') </a>
+                           </li>
+                            @endif 
                          </ul>
                     </li>
-                    @endif
+                  <li @if($segments_var[0]=='blessings') class="treeview active" @else class="treeview" @endif>
+                        <a href="#">
+                            <i class="fa fa-gift"></i> <span>Manage Blessings</span>
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                        </a>
+                        @php
+                       $array= array('blessings')
+                       @endphp
+                        <ul @if(in_array($segments_var[0],$array)) class="treeview-menu active" style="display:block" @else class="treeview-menu" @endif>
+                            @if(menuPermission('blessings')==1)
+                           <li @if($segments_var[0]=='blessings') class="active" @endif><a href="{{route('blessings.index')}}">
+                                    <i class="fa fa-gift"></i> @lang('menu.blessings.title') </a>
+                           </li>
+                            @endif 
+                         </ul>
+                    </li>
+                   
                  @php $pem=menuDisplayByUser($result, 'permissions','view'); @endphp
                     @if($pem=='true')
                      <li  @if($segments_var[0]=='roles' || $segments_var[0]=='permissions' || $segments_var[0]=='settings') class="treeview active" @else class="treeview" @endif>
@@ -353,8 +295,7 @@ $array= array('depots','bus_types','services','vehicles','shifts','stops','route
 
     </div>
 </div>
-                    
-@include('partials.depot_addnew')
+
 </section>
 </div>
  </section>
@@ -366,6 +307,7 @@ $array= array('depots','bus_types','services','vehicles','shifts','stops','route
     reserved.
 </footer>
 </div>
+
 
 
 <!-- jQuery UI 1.11.4 -->

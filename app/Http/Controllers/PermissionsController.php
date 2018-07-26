@@ -72,7 +72,7 @@ class PermissionsController extends Controller
 //            $permission->inspector_remarks = implode(',', $request->inspector_remarks);
 //            $permission->payout_reasons = implode(',', $request->payout_reasons);
 //            $permission->denominations = implode(',', $request->denominations);
-//            $permission->pass_types = implode(',', $request->pass_types);
+//            $permission->donations = implode(',', $request->donations);
 //            $permission->crew_details = implode(',', $request->crew_details);
 //            $permission->ETM_details = implode(',', $request->ETM_details);
 //            
@@ -100,7 +100,7 @@ class PermissionsController extends Controller
 //            $input['inspector_remarks'] = implode(',', $request->inspector_remarks);
 //            $input['payout_reasons'] = implode(',', $request->payout_reasons);
 //            $input['denominations'] = implode(',', $request->denominations);
-//            $input['pass_types'] = implode(',', $request->pass_types);
+//            $input['donations'] = implode(',', $request->donations);
 //            $input['crew_details'] = implode(',', $request->crew_details);
 //            $permission->ETM_details = implode(',', $request->ETM_details);
 //            
@@ -144,7 +144,7 @@ class PermissionsController extends Controller
             $input['inspector_remarks'] = implode(',', $request->inspector_remarks);
             $input['payout_reasons'] = implode(',', $request->payout_reasons);
             $input['denominations'] = implode(',', $request->denominations);
-            $input['pass_types'] = implode(',', $request->pass_types);
+            $input['donations'] = implode(',', $request->donations);
             $input['crew_details'] = implode(',', $request->crew_details);
             $input['ETM_details'] = implode(',', $request->ETM_details);
            $roles= Permission::create($input);
@@ -184,7 +184,7 @@ class PermissionsController extends Controller
             $input['inspector_remarks'] = implode(',', $request->inspector_remarks);
             $input['payout_reasons'] = implode(',', $request->payout_reasons);
             $input['denominations'] = implode(',', $request->denominations);
-            $input['pass_types'] = implode(',', $request->pass_types);
+            $input['donations'] = implode(',', $request->donations);
             $input['crew_details'] = implode(',', $request->crew_details);
             $input['ETM_details'] = implode(',', $request->ETM_details);
             $permission->fill($input)->save();

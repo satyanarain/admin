@@ -23,39 +23,11 @@
                                 {{ menuCreate('users','create','edit','view',$permissions->id,$permissions->users)}}
                                 {{ menuCreate('changepasswords','create','edit','view',$permissions->id,$permissions->changepasswords)}}
                                 {{ menuCreate('permissions','create','edit','view',$permissions->id,$permissions->permissions) }}
-                                {{ menuCreate('depots','create','edit','view',$permissions->id,$permissions->depots) }}
-                                {{ menuCreate('bus_types','create','edit','view',$permissions->id,$permissions->bus_types)}}
-                                {{ menuCreate('services','create','edit','view',$permissions->id,$permissions->services)}}
-                                {{ menuCreate('vehicles','create','edit','view',$permissions->id,$permissions->vehicles)}}
-                                {{ menuCreate('shifts','create','edit','view',$permissions->id,$permissions->shifts)}}
-                                {{ menuCreate('stops','create','edit','view',$permissions->id,$permissions->stops)}}
-                                {{ menuCreate('routes','create','edit','view',$permissions->id,$permissions->routes)}}
-                                {{ menuCreate('duties','create','edit','view',$permissions->id,$permissions->duties)}}
-                                {{ menuCreate('targets','create','edit','view',$permissions->id,$permissions->targets)}}
-                                {{ menuCreate('trips','create','edit','view',$permissions->id,$permissions->trips)}}
-                                {{ menuCreate('fares','create','edit','view',$permissions->id,$permissions->fares)}}
-                                {{ menuCreate('concession_fare_slabs','create','edit','view',$permissions->id,$permissions->concession_fare_slabs)}}
-                                {{ menuCreate('concessions','create','edit','view',$permissions->id,$permissions->concessions)}}
-                                {{ menuCreate('trip_cancellation_reasons','create','edit','view',$permissions->id,$permissions->trip_cancellation_reasons)}}
-                                {{ menuCreate('inspector_remarks','create','edit','view',$permissions->id,$permissions->inspector_remarks)}}
-                                {{ menuCreate('payout_reasons','create','edit','view',$permissions->id,$permissions->payout_reasons)}}
-                                {{ menuCreate('denominations','create','edit','view',$permissions->id,$permissions->denominations)}}
-                                {{ menuCreate('pass_types','create','edit','view',$permissions->id,$permissions->pass_types)}}
-                                {{ menuCreate('crew_details','create','edit','view',$permissions->id,$permissions->crew_details)}}
-                               
-                            </table> 
+                                {{ menuCreate('donations','create','edit','view',$permissions->id,$permissions->donations) }}
+                              </table> 
                         </div>
                     </div>
-                    <div   class="formmain" onclick="showHide(this.id)" id="ACC2{{$permissions->id}}">
-                        <div class="plusminusbutton" id="plusminusbuttonACC2{{$permissions->id}}">+</div>&nbsp;&nbsp;ETM Details
-                    </div>
-                     <div class="row1"  id="formACC2{{$permissions->id}}" style="display:none;">
-                        <div class="row">  
-                            <table class="table table-responsive.view">
-                                 {{ menuCreate('ETM_details','create','edit','view',$permissions->id,$permissions->ETM_details)}}
-                        </table> 
-                        </div>
-                    </div>
+                  
               </div>
         </div>
 
