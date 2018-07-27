@@ -6,22 +6,6 @@
     </div>
 </div> 
 
-
- @if($blessings->image_name!='')
-<div class="form-group">
-@if($blessings->image_name!='')
-{!! Form::label('image_name', Lang::get('Existing Image'), ['class' => 'col-md-3 control-label']) !!}
-  <div class="col-md-7 col-sm-12">
-{{Html::image('images/donation/thumbnail/'.$blessings->image_name, 'a picture', array('width' => '100','height'=>'100'))}}
-</div>
-@else
-{!! Form::label('image_name', Lang::get('Existing Image'), ['class' => 'col-md-3 control-label']) !!}
-  <div class="col-md-7 col-sm-12">
-{{Html::image('images/photo/noimage.png', 'a picture', array('width' => '100','height'=>'100'))}}
-</div>
-@endif
-</div>
-@endif
  
 <div class="form-group">
     {!! Form::label('image_name', Lang::get('Audio / Video'), ['class' => 'col-md-3 control-label']) !!}
@@ -52,12 +36,3 @@
         </div>
     </div>
 </div> 
-
-
-
-
-
-
-<script>  
-
-</script>

@@ -36,34 +36,27 @@ class NotificationRepository implements NotificationRepositoryContract {
         $userid = Auth::id();
         $input['user_id'] = $userid;
  
-        
-            echo "<pre>";
-          print_r($_POST);
-          echo "</pre>";      
-        
-        
-          echo "<pre>";
-          print_r($_FILES);
-          echo "</pre>";
-       //exit(); 
-          
-         
-          $image_storage_location = "blessings";
-         
-       // if ($requestData->hasFile('image_name')) {
+//        
+//            echo "<pre>";
+//          print_r($_POST);
+//          echo "</pre>";      
+//        
+//        
+//          echo "<pre>";
+//          print_r($_FILES);
+//          echo "</pre>";
+$image_storage_location = "blessings";
+  if ($requestData->hasFile('image_name')) {
             if (!is_dir(public_path() . '/images/' . $image_storage_location)) {
                 mkdir(public_path() . '/images/' . $image_storage_location, 0777, true);
               
             }
            
             $file = $requestData->file('image_name');
-
             $destinationPath = public_path() . '/images/' . $image_storage_location;
-
-             $filename = str_random(8) . '_' . $file->getClientOriginalName();
-           
+            $filename = str_random(8) . '_' . $file->getClientOriginalName();
             $file->move($destinationPath, $filename);
-        // }
+     }
 
         $input['image_name']=$filename;
         
@@ -80,7 +73,7 @@ class NotificationRepository implements NotificationRepositoryContract {
         
          $image_storage_location = "blessings";
          // $image_storage_location_thumb = "donation/thumbnail";
-      //  if ($requestData->hasFile('image_name')) {
+   if ($requestData->hasFile('image_name')) {
             if (!is_dir(public_path() . '/images/' . $image_storage_location)) {
                 mkdir(public_path() . '/images/' . $image_storage_location, 0777, true);
               //  mkdir(public_path() . '/images/' . $image_storage_location_thumb, 0777, true);
@@ -93,7 +86,7 @@ class NotificationRepository implements NotificationRepositoryContract {
              $filename = str_random(8) . '_' . $file->getClientOriginalName();
              $file->move($destinationPath, $filename);
            $input['image_name']=$filename;
-       //  }
+       }
        $donations->fill($input)->save();
         Session::flash('flash_message', "Pass Type Updated Successfully.");
         return $donations;

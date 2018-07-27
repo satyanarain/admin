@@ -26,6 +26,20 @@
         <!-- /.box -->
 
     <!-- /.col -->
+<script>
+ function validateForm(){
+     
+     //$("#")
+  
+      var ext = $('#image_name').val().split('.').pop().toLowerCase();
+     if(ext!='')
+     {
+      if($.inArray(ext, ['webm', 'mpg', 'mp2', 'mpeg', 'mpe', 'mpv', 'mp4', 'm4p', 'm4v','mp3', 'm4a', 'mp2', 'aac', 'oga']) == -1) {
+       $("#output").hide();
+       alert('invalid extension!');
+       return false;
 
-
+       }
+     }
+</script>
 @stop

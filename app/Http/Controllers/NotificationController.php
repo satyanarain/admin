@@ -38,8 +38,7 @@ class NotificationController extends Controller {
      * @return Response
      */
  public function index(Request $request) {
-     
-         $blessings = Notification::paginate(10);
+       $blessings = Notification::paginate(10);
      return view('blessings.index',compact('blessings'));
  }
  
@@ -64,42 +63,50 @@ class NotificationController extends Controller {
         <div class="modal-content">
             <div class="modal-header-view" >
 <!--                <button type="button" class="close" data-dismiss="modal"><font class="white">&times;</font></button>-->
-                <h4 class="viewdetails_details"><span class="fa fa-gift"></span>&nbsp;Notification</h4>
+                <h4 class="viewdetails_details"><span class="fa fa-gift"></span>&nbsp;Blessing</h4>
             </div>
             <div class="modal-body-view">
                  <table class="table table-responsive.view">
                     <tr>       
                         <td><b>Name</b></td>
-                        <td class="table_normal"><?php  echo $value->name ?></span></td>
+                        <td class="table_normal"><?php  echo $value->description ?></span></td>
                     </tr>
                     <tr>
-                        <td><b>Image</b></td>
-                            <?php  $url = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]"."/images/donation/thumbnail/"; ?>
+                        <td><b>Audio / Video</b></td>
+                            <?php  $url = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]"."/images/blessings/"; ?>
                         
-                        <td class="table_normal"><img src="<?php echo $url.$value->image_name;?>" >
-                            </span></td>
+                        <td class="table_normal">
+                            <?php 
+                           
+                              if ($value->image_name!= '') {
+                                  $array = explode('.', $value->image_name);
+
+                                  $extension = end($array);
+                                  $extension_lower = strtolower($extension);
+                                  $video = array('WEBM', 'MPG', 'MP2', 'MPEG', 'MPE', 'MPV', 'MP4', 'M4P', 'M4V');
+                                  $video_lower = array_map('strtolower', $video);
+                                  $audio = array('MP3', 'M4A', 'MP2', 'AAC', 'OGA');
+                                  $audio_lover = array_map('strtolower', $audio);
+                                  if (in_array($extension_lower, $audio_lover)) {
+                                      ?>
+
+                               <audio controls>
+                                        <source src="horse.ogg" type="audio/ogg">
+                                        <source src="<?php echo $url.$value->image_name ?>" type="audio/mpeg">
+                                     </audio> 
+                               <?php } else{ ?>
+                               <video width="320" height="240" controls>
+                                     <source src="<?php echo $url.$value->image_name ?>" type="video/mp4">
+                                     <source src="movie.ogg" type="video/ogg">
+                                   </video> 
+                                 <?php }}else{ 
+                                    echo "N/A";
+                                  ?>
+                              
+                              <?php } ?>
+                         </td>
                     </tr>
-                    <tr>
-                        <td><b>Description</b></td>
-                        <td class="table_normal"><?php echo $value->description; ?></td>
-                    </tr>
-                    <tr>
-                        <td><b>Price</b></td>
-                        <td class="table_normal"><?php echo $value->price; ?></td>
-                    </tr>
-                    <td><b>Type</b></td>
-                     <td>
-                         
-                                <?php if($value->donation_list!=''){ ?>
-                                <span style="background-color:#398439; color:#fff; padding:2px 10px 2px 15px;"> Notification</span> &nbsp;&nbsp;&nbsp;
-                                <?php } ?>
-                               
-                                <?php if($value->purchase_list!='') { ?>
-                                <span style="background-color:#f39c12; color:#fff; padding:2px 10px 2px 15px;">
-                                    Purchase
-                                </span>  
-                                <?php } ?>
-                            </td>
+                    
                   </table>  
                   <div class="modal-footer">
                     <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>

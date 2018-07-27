@@ -37,14 +37,58 @@
                       <tbody>
                          
                         @foreach($blessings as $value)
+                        
+                        
+                        
                         <tr class="nor_f">
                             <th class="display_none"></th>
-                       
-                            <td>{{ Html::image('images/notifications/thumbnail/'.$value->image_name,'alt',array('class'=>'test'))}}</td>
-                            <td>{{ $value->description }}</td>
-                            
+
+                            <td>
+                              <?php 
+                              //  $value->image_name;
+                              
+                              
+                              if ($value->image_name!= '') {
+                                  $array = explode('.', $value->image_name);
+
+                                  $extension = end($array);
+                                  $extension_lower = strtolower($extension);
+                                  $video = array('WEBM', 'MPG', 'MP2', 'MPEG', 'MPE', 'MPV', 'MP4', 'M4P', 'M4V');
+                                  $video_lower = array_map('strtolower', $video);
+                                  $audio = array('MP3', 'M4A', 'MP2', 'AAC', 'OGA');
+                                  $audio_lover = array_map('strtolower', $audio);
+                                  if (in_array($extension_lower, $audio_lover)) {
+                                      ?>
+                                {{Html::image('images/audio.png','audio',array('style'=>'width:50px; height:50px;'))}}
+<!--                                <audio controls>
+                                        <source src="horse.ogg" type="audio/ogg">
+                                        <source src="{{asset('images/blessings/'.$value->image_name)}}" type="audio/mpeg">
+                                        
+                                    </audio> -->
+                               <?php } else{ ?>
+ {{Html::image('images/video.png','video',array('style'=>'width:50px; height:50px;'))}}
+<!--                                   <video width="320" height="240" controls>
+                                     <source src="http://upload.wikimedia.org/wikipedia/commons/7/79/Big_Buck_Bunny_small.ogv" type="video/mp4">
+                                     <source src="movie.ogg" type="video/ogg">
+                                   </video> -->
+                                 <?php }}else{ 
+                                    echo "N/A";
+                                  ?>
+                              
+                              <?php } ?>
+                            </td>
+                            <td>
+                                <?php if(strlen($value->description)>100)
+                                {
+                                echo substr($value->description,0,100).".." ;
+                                }else {
+                                      echo substr($value->description,0,100);
+                                }
+                                ?>
+                            </td>
+
                             {{ actionEdit('edit',$value->id,$value->status)}}
-                         </tr>
+                        </tr>
                         @endforeach
                         </tbody>
                     </table>
@@ -62,6 +106,23 @@
     
  </div>
 <script>
+    $(function() {
+  var canvas = document.getElementById('canvas');
+  var ctx = canvas.getContext('2d');
+  var video = document.getElementById('video');
+
+  video.addEventListener('play', function() {
+    var $this = this; //cache
+    (function loop() {
+      if (!$this.paused && !$this.ended) {
+        ctx.drawImage($this, 0, 0);
+        setTimeout(loop, 1000 / 30); // drawing at 30fps
+      }
+    })();
+  }, 0);
+});
+    
+    
  function viewDetails(id,view_detail)
 {
 //alert(id)

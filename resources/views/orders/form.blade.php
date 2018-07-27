@@ -1,6 +1,6 @@
 
-<div class="form-group ">
-     {!! Form::label('name', Lang::get('Name'), ['class' => 'col-md-3 control-label']) !!}
+<!--<div class="form-group ">
+     {!! Form::label('name', Lang::get('Order'), ['class' => 'col-md-3 control-label']) !!}
     <div class="col-md-7 col-sm-12 required">
           {!! Form::text('name', null, ['class' => 'col-md-6 form-control','required' => 'required']) !!}
     </div>
@@ -163,4 +163,4 @@ if($('#frmTest input:checked').length == 0)
      
      
  }  
-</script>
+</script>-->
