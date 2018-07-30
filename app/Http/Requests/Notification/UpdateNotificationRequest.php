@@ -27,7 +27,7 @@ class UpdateNotificationRequest extends Request
                   // 'name' => 'required',
                    //'description' => 'required',
                   // 'price' => 'required',
-                    'status'  => 'required',
+                 //   'status'  => 'required',
                   // 'image_path' => 'required',
                    //'purchase_list' => 'required',
                    //donation_list' => 'required'

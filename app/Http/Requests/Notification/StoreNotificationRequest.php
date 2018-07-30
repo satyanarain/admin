@@ -27,7 +27,7 @@ class StoreNotificationRequest extends Request
         
             return [
                  
-              'status'  => 'required',
+             // 'status'  => 'required',
 
                    
              ];
