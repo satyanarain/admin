@@ -224,7 +224,7 @@ echo json_encode([
                    
                  @php $pem=menuDisplayByUser($result, 'permissions','view'); @endphp
                     @if($pem=='true')
-                     <li  @if($segments_var[0]=='roles' || $segments_var[0]=='permissions' || $segments_var[0]=='settings') class="treeview active" @else class="treeview" @endif>
+<!--                     <li  @if($segments_var[0]=='roles' || $segments_var[0]=='permissions' || $segments_var[0]=='settings') class="treeview active" @else class="treeview" @endif>
                         <a href="#">
                             <i class="fa fa-cog" aria-hidden="true"></i> <span>@lang('menu.settings.title')</span>
                             <span class="pull-right-container">
@@ -242,7 +242,7 @@ echo json_encode([
                             
                             
                          </ul>
-                    </li>
+                    </li>-->
                     @endif
                    
                     </ul>

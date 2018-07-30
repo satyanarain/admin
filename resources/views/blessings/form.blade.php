@@ -1,7 +1,7 @@
 <div class="form-group ">
      {!! Form::label('description', Lang::get('Text'), ['class' => 'col-md-3 control-label']) !!}
     <div class="col-md-7 col-sm-12 required">
-          {!! Form::textarea('description', null, ['class' => 'col-md-6 form-control','required' => 'required','rows'=>"3"]) !!}
+          {!! Form::textarea('description', null, ['class' => 'col-md-6 form-control','rows'=>"3"]) !!}
           
     </div>
 </div> 

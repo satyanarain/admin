@@ -91,14 +91,12 @@ class NotificationController extends Controller {
                                       ?>
 
                                <audio controls>
-                                        <source src="horse.ogg" type="audio/ogg">
-                                        <source src="<?php echo $url.$value->image_name ?>" type="audio/mpeg">
+<!--                                        <source src="horse.ogg" type="audio/ogg">-->
+                                        <source src="<?php echo $url.$value->image_name ?>">
                                      </audio> 
                                <?php } else{ ?>
-                               <video width="320" height="240" controls>
-                                     <source src="<?php echo $url.$value->image_name ?>" type="video/mp4">
-                                     <source src="movie.ogg" type="video/ogg">
-                                   </video> 
+                               <video width="320" height="240" controls src="<?php echo $url.$value->image_name ?>"></video> 
+<!--                              <video id="video" src="http://upload.wikimedia.org/wikipedia/commons/7/79/Big_Buck_Bunny_small.ogv" ></video>-->
                                  <?php }}else{ 
                                     echo "N/A";
                                   ?>

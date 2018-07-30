@@ -78,12 +78,20 @@
                               <?php } ?>
                             </td>
                             <td>
-                                <?php if(strlen($value->description)>100)
+                                <?php
+                                if($value->description!='')
+                                {
+                                if(strlen($value->description)>100)
                                 {
                                 echo substr($value->description,0,100).".." ;
                                 }else {
                                       echo substr($value->description,0,100);
                                 }
+                                }else
+                                {
+                                    echo "N/A";
+                                }
+                                
                                 ?>
                             </td>
 

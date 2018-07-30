@@ -8,7 +8,6 @@
     <div class="col-xs-12">
       <div class="box">
             <div class="box-header">
-               <h3 class="box-title">{{headingMain()}}</h3>
               {{ createButton('create','Add') }}
             </div>
              @include('partials.message')
