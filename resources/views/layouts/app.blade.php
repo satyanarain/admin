@@ -6,8 +6,9 @@
         @endif
         <meta charset="UTF-8">
         <meta name="csrf-token" content="{{ csrf_token() }}">
-         <title>GNS</title>
+         <title>Gurudwara Nanaksar Sahib</title>
         <link rel="icon" type="image/png" sizes="16x16" href="{{url('images/favicon-16x16.png')}}">
+        <link rel="shortcut icon" type="image/x-icon" href="{{url('images/favicon.ico')}}">
         <script src="{{ asset(elixir('js/jquery-2.2.3.min.js')) }}"></script>
         <link rel="stylesheet" href="{{ asset(elixir('css/bootstrap.min.css')) }}">
         <!-- Font Awesome -->
@@ -61,7 +62,7 @@ echo json_encode([
             <!-- Logo -->
             <a href="index2.html" class="logo">
              
-                <span class="logo-lg"><b>{{Html::image('images/logo.png','',array('class'=>'logo'))}}</span>
+                <span class="logo-lg">{{Html::image('images/logo-white-lg.png','',array('class'=>'logo'))}}</span>
             </a>
             <!-- Header Navbar: style can be found in header.less -->
             <nav class="navbar navbar-static-top">
@@ -101,13 +102,13 @@ echo json_encode([
                             </a>           
                             <ul class="dropdown-menu">
                                 <li>
-                                    <a href="{{ url('/users/'.Auth::user()->id) }}" class="glyphicon glyphicon-user">Profile</a>
+                                    <a href="{{ url('/users/'.Auth::user()->id) }}" class="glyphicon glyphicon-user"> Profile</a>
                                 </li>
                                 <li>
-                                    <a href="{{ url('/changepasswords/create/') }}" class="glyphicon glyphicon-user">Change password</a>
+                                    <a href="{{ url('/changepasswords/create/') }}" class="glyphicon glyphicon-lock"> Change Password</a>
                                 </li>
                                 <li>
-                                    <a href="{{ url('/logout') }}" class="glyphicon glyphicon-log-out">Sign out</a>
+                                    <a href="{{ url('/logout') }}" class="glyphicon glyphicon-log-out"> Sign Out</a>
                                 </li>
 
                             </ul>

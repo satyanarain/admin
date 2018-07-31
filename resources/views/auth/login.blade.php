@@ -5,12 +5,13 @@
 <!--[if IE 9 ]>    <html lang="en" class="no-js ie9"> <![endif]-->
 <!--[if (gt IE 9)|!(IE)]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
     <head>
-   <title>GNS</title>
+   <title>Gurudwara Nanaksar Sahib</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="noindex, nofollow">
     <link rel="icon" type="image/png" sizes="16x16" href="{{url('images/favicon-16x16.png')}}">
+    <link rel="shortcut icon" type="image/x-icon" href="{{url('images/favicon.ico')}}">
     <!-- Fonts -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel='stylesheet' type='text/css'>
     <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700" rel='stylesheet' type='text/css'>
@@ -26,6 +27,7 @@
                  <a class="hiddenanchor" id="toregister"></a>
                  <a class="hiddenanchor" id="tologin"></a>
                  <div class="row">
+                    <h1 class="text-center"><img src="{{url('images/logo.png')}}" alt=""></h1>
                      <div class="col-sm-6 col-md-4 col-md-offset-4">
                          <div class="account-wall">
                              {{Html::image('images/guru.jpg','alt',array('class'=>'profile-img')),'class=profile-img'}}
@@ -40,22 +42,19 @@
                                  <div class="alert alert-danger">{{Session::get('fail')}}</div>
                                  @endif
                                  <p> 
-                                  <label for="username" class="uname" style="float:left">User Name</label>
-                                  <input id="username" name="user_name" class="form-control" required="required" type="text" placeholder="User Name" style="height:46"/>
+                                    <label for="username" class="uname">User Name</label>
+                                    <input id="username" name="user_name" class="form-control input-text" required="required" type="text" placeholder="User Name"/>
                                  </p>
                                  <p> 
-                                     <label for="password" class="youpasswd" style="float:left"> Password</label>
-                                     <input id="password" name="password" class="form-control" required="required" type="password" placeholder="Password" style="height:46"/> 
+                                    <label for="password" class="youpasswd"> Password</label>
+                                    <input id="password" name="password" class="form-control input-text" required="required" type="password" placeholder="Password"/> 
                                  </p>
                                  <p class="keeplogin"> 
-                                     <input type="checkbox" name="remember" id="loginkeeping" value="loginkeeping" /> 
-                                     <label for="loginkeeping" style="float:left">Keep me logged in</label>
+                                    <div class="col-md-6" style="padding:0px;"><input type="checkbox" name="remember" id="loginkeeping" value="loginkeeping" /> <label for="loginkeeping">Keep me logged in</label></div>
+                                    <div class="col-md-6 text-right" style="padding:0px;"><a href="{{ url('/password/reset') }}" >Forgot Your Password?</a></div>
                                  </p>
                                  <p class="login button"> 
-                                     <input type="submit" value="Login" class="btn btn-lg btn-primary btn-block"/> 
-                                 </p>
-                                 <p>
-                                     <a  href="{{ url('/password/reset') }}" >Forgot Your Password?</a>
+                                     <input type="submit" value="Login" class="btn login-btn"/> 
                                  </p>
                              </form>
                          </div>
