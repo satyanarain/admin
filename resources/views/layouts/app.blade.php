@@ -15,7 +15,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
         <!-- Ionicons -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
-        <link rel="stylesheet" href="{{ asset(elixir('css/skins/_all-skins.min.css')) }}">
+        <link rel="stylesheet" href="{{ asset(elixir('css/skins/_all-skins.css')) }}">
         <!-- iCheck -->
         <link rel="stylesheet" href="{{ asset(elixir('plugins/iCheck/flat/blue.css')) }}">
         <!-- Morris chart -->
@@ -62,7 +62,7 @@ echo json_encode([
             <!-- Logo -->
             <a href="index2.html" class="logo">
              
-                <span class="logo-lg">{{Html::image('images/logo-white-lg.png','',array('class'=>'logo'))}}</span>
+                <span class="logo-sm">{{Html::image('images/logo-white.png','',array('class'=>'logo'))}}</span>
             </a>
             <!-- Header Navbar: style can be found in header.less -->
             <nav class="navbar navbar-static-top">
@@ -125,7 +125,7 @@ echo json_encode([
    <aside class="main-sidebar">
      <section class="sidebar">
            <ul class="sidebar-menu">
-                    <li class="header">MAIN NAVIGATION</li>
+                    <!--<li class="header">MAIN NAVIGATION</li>-->
                     <li class="active treeview">
                        <a href="{{route('dashboard')}}">
                             <i class="fa fa-dashboard"></i> <span>Dashboard</span>
@@ -188,7 +188,7 @@ echo json_encode([
                     </li>
                   <li @if($segments_var[0]=='orders') class="treeview active" @else class="treeview" @endif>
                         <a href="#">
-                            <i class="fa fa-gift"></i> <span>Manage Order</span>
+                            <i class="fa fa-file-text-o"></i> <span>Manage Order</span>
                             <span class="pull-right-container">
                                 <i class="fa fa-angle-left pull-right"></i>
                             </span>
@@ -206,7 +206,7 @@ echo json_encode([
                     </li>
                   <li @if($segments_var[0]=='blessings') class="treeview active" @else class="treeview" @endif>
                         <a href="#">
-                            <i class="fa fa-gift"></i> <span>Manage Blessings</span>
+                            <i class="fa fa-tint"></i> <span>Manage Blessings</span>
                             <span class="pull-right-container">
                                 <i class="fa fa-angle-left pull-right"></i>
                             </span>
@@ -304,7 +304,7 @@ echo json_encode([
     <div class="pull-right hidden-xs">
         <b>Version</b> 2.3.7
     </div>
-    <strong>Copyright &copy; 2014-2016 <a href="http://opiant.in">Opiant Tech Solutions Pvt. Ltd.</a>.</strong> All rights
+    <strong>Copyright &copy; 2014-2016 <a href="http://opiant.in">Opiant Tech Solutions</a></strong>. All rights
     reserved.
 </footer>
 </div>
