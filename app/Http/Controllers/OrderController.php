@@ -43,6 +43,7 @@ use activityLog;
         // $orders = Order::paginate(10);
          $orders= DB::table('orders')
         ->join('registers', 'registers.id', '=', 'orders.user_id')
+        ->join('blessings', 'blessings.id', '=', 'orders.item_id')
         ->orderBy('orders.id', 'desc')
         ->select('orders.*','registers.*','orders.id as id','orders.created_at as created_at','orders.status as status')
         ->paginate(10);

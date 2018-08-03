@@ -29,6 +29,7 @@
                             <th>@lang('Name')</th>
                             <th>@lang('Ceated')</th>
                             <th>@lang('Total Price')</th>
+                            <th>@lang('Type of order')</th>
                             <th>@lang('Payment Status')</th>
                                {{  actionHeading('Action', $newaction='') }}
                         </tr>

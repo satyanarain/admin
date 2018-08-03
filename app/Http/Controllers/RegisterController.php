@@ -30,6 +30,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Notifications\Notifiable;
 use App\Traits\activityLog;
+use Mail;
 class RegisterController extends Controller
 {
     use activityLog;
@@ -55,7 +56,7 @@ class RegisterController extends Controller
      */
     public function index()
     {
-     $registers = Register::paginate(10);
+   $registers = Register::paginate(10);
      //return view('donations.index',compact('donations'));
     return view('registers.index')->withRegisters($registers);
    

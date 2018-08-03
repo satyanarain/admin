@@ -15,7 +15,7 @@
          'onSubmit'=>'return validateForm()',
         'enctype' => 'multipart/form-data'
         ]) !!}
-               @include('blessings.form', ['submitButtonText' => Lang::get('user.headers.update_submit')])
+               @include('blessings.form_edit', ['submitButtonText' => Lang::get('user.headers.update_submit')])
 
                 {!! Form::close() !!}
              </div>

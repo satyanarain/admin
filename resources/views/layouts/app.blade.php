@@ -91,13 +91,7 @@ echo json_encode([
                         <li class="dropdown user user-menu" >
 
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-
-                                @if(Auth::user()->image_path)
-                                {{Html::image('/images/photo/'.Auth::user()->image_path,'',array('class'=>"user-image"))}}
-                                @else
-                                <img src="<?php echo \URL::to('') . '/img/user2-160x160.jpg' ?>" class="user-image">
-                                @endif
-                                <span class="hidden-xs">{{{ isset(Auth::user()->salutation) ? Auth::user()->salutation : '' }}} {{{ isset(Auth::user()->name) ? Auth::user()->name : '' }}}!</span>
+                                  <span class="hidden-xs">{{{ isset(Auth::user()->salutation) ? Auth::user()->salutation : '' }}} {{{ isset(Auth::user()->name) ? Auth::user()->name : '' }}}!</span>
                                 <b class="caret"></b>
                             </a>           
                             <ul class="dropdown-menu">
@@ -148,7 +142,7 @@ echo json_encode([
                           </ul>
                     </li>-->
                     @endif
-                    <li @if($segments_var[0]=='donations') class="treeview active" @else class="treeview" @endif>
+                    <li @if($segments_var[0]=='registers') class="treeview active" @else class="treeview" @endif>
                         <a href="#">
                             <i class="fa fa-user"></i> <span>Manage Registered Users</span>
                             <span class="pull-right-container">
@@ -175,8 +169,9 @@ echo json_encode([
                             </span>
                         </a>
                         @php
-                       $array= array('depots','donations','orders')
+                       $array= array('donations')
                        @endphp
+                       
                         <ul @if(in_array($segments_var[0],$array)) class="treeview-menu active" style="display:block" @else class="treeview-menu" @endif>
                             @if(menuPermission('donations')==1)
                            <li @if($segments_var[0]=='donations') class="active" @endif><a href="{{route('donations.index')}}">
@@ -354,7 +349,7 @@ $.widget.bridge('uibutton', $.ui.button);
 <style type="text/css" class="init"></style>
 <script type="text/javascript" src="jquery-1.12.0.min.js"></script>
 <script type="text/javascript" src="https://cdn.datatables.net/tabletools/2.2.4/js/dataTables.tableTools.min.js"></script>
-<script type="text/javascript" src="https://cdn.datatables.net/tabletools/2.2.2/swf/copy_csv_xls_pdf.swf"></script>
+<!--<script type="text/javascript" src="https://cdn.datatables.net/tabletools/2.2.2/swf/copy_csv_xls_pdf.swf"></script>-->
 <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.colVis.min.js"></script>
 <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.1.2/js/dataTables.buttons.min.js"></script>
 <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.1.2/js/buttons.flash.min.js"></script>
@@ -372,9 +367,9 @@ $('body').on('focus',".multiple_date", function(){
               dateFormat: 'dd-mm-yy',
                startView: "year", 
                 changeYear: true,
-              yearRange: "-80Y:-0Y",
-minDate: "-80Y",
-maxDate: "-0Y"
+                yearRange: "-80Y:-0Y",
+               // minDate: "-80Y",
+               // maxDate: "-0Y"
           });
       }); 
   $('#map1').append('<div style="" id="map"><div class="loading_bar"></div></div>');

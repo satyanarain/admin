@@ -277,9 +277,12 @@ function actionEdit($action = '', $id = '',$status='') {
                   <?php }else{ ?>
                 <?php  if(in_array('view',$array_all)){ ?>
                <button  class="btn btn-small btn-primary"   onclick="viewDetails(<?php echo $id ?>,'view_detail');"><span class="glyphicon glyphicon-search"></span>&nbsp;View</button>&nbsp;&nbsp;&nbsp;&nbsp;
+               <?php if($segments[0]=='blessings'){?>
+                <button  class="btn btn-small btn-danger"   onclick="viewDelete(<?php echo $id ?>);"><i class="fa fa-trash-o"></i>&nbsp;Delete</button>&nbsp;&nbsp;&nbsp;&nbsp;
+               <?php } ?>
               <?php } ?>
                <?php } ?>
-              <?php if($segments[0]=='users' || $segments[0]=='donations'){?>
+              <?php if($segments[0]=='users' || $segments[0]=='donations' || $segments[0]=='orders'){?>
              <div 
                  <?php if($status==1)
                  { ?>

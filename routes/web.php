@@ -31,13 +31,13 @@ Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm
 Route::resource('create_passwords', 'CreatePasswordsController');
  
 Route::post('password/reset', 'Auth\ResetPasswordController@postReset')->name('password.reset');
-Route::get('notifications/markall', 'NotificationsController@markAll')->name('notifications.markall');
+//Route::get('notifications/markall', 'NotificationsController@markAll')->name('notifications.markall');
 Route::group(['middleware' => ['auth']], function () {
     Route::get('/', 'PagesController@dashboard');
     Route::get('dashboard', 'PagesController@dashboard')->name('dashboard');
     Route::get('showdashboard', 'PagesController@showDashboard')->name('showdashboard');
-    Route::get('notifications/getall', 'NotificationsController@getAll')->name('notifications.get');
-    Route::post('notifications/markread', 'NotificationsController@markRead')->name('notifications.markread');
+   // Route::get('notifications/getall', 'NotificationsController@getAll')->name('notifications.get');
+    //Route::post('notifications/markread', 'NotificationsController@markRead')->name('notifications.markread');
 
     Route::get('users/data', 'UsersController@anyData')->name('users.data');
     Route::get('users/statusupdate/{id}', 'UsersController@statusUpdate');
@@ -55,11 +55,12 @@ Route::group(['middleware' => ['auth']], function () {
      Route::post('users/changeprofileimage', 'UsersController@changeProfileImage')->middleware('user.changeprofileimage')->name('changeprofileimage');
     /************************masters created by satya 22-11-2017 depot***************************** */
    
-    Route::get('blessings/view_detail/{id}', 'NotificationController@viewDetail');
-    Route::get('blessings/statusupdate/{id}', 'NotificationController@statusUpdate');
-    Route::post('blessings/store', 'NotificationController@store');
-    Route::get('blessings/order_list', 'NotificationController@orderList');
-    Route::resource('blessings', 'NotificationController');
+    Route::get('blessings/view_detail/{id}', 'BlessingController@viewDetail');
+    Route::get('blessings/statusupdate/{id}', 'BlessingController@statusUpdate');
+    Route::post('blessings/store', 'BlessingController@store');
+    Route::get('blessings/order_list', 'BlessingController@orderList');
+    Route::get('blessings/destroyblessing/{id}', 'BlessingController@destroyBlessing');
+    Route::resource('blessings', 'BlessingController');
     
     /************************masters created by satya 22-11-2017 depot***************************** */
     Route::get('orders/view_detail/{id}', 'OrderController@viewDetail');

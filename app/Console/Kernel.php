@@ -13,7 +13,10 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        //
+
+    //This is the line of code added, at the end, we the have class name of DeleteInActiveUsers.php inside app\console\commands
+        '\App\Console\Commands\DeleteInActiveUsers',
+          'App\Console\Commands\RegisteredUsers',
     ];
 
     /**
@@ -24,19 +27,19 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')
-        //          ->hourly();
+       //insert name and signature of you command and define the time of excusion
+        $schedule->command('DeleteInActiveUsers:deleteusers')
+                 ->everyMinute();
+       //  $schedule->command('registered:users')->everyMinute();
     }
 
     /**
-     * Register the commands for the application.
+     * Register the Closure based commands for the application.
      *
      * @return void
      */
     protected function commands()
     {
-        $this->load(__DIR__.'/Commands');
-
         require base_path('routes/console.php');
     }
 }

@@ -33,8 +33,8 @@ class AccessServiceProvider extends ServiceProvider
             \App\Repositories\Donation\DonationRepository::class
         );
          $this->app->bind(
-            \App\Repositories\Notification\NotificationRepositoryContract::class,
-            \App\Repositories\Notification\NotificationRepository::class
+            \App\Repositories\Blessing\BlessingRepositoryContract::class,
+            \App\Repositories\Blessing\BlessingRepository::class
         );
         
        
