@@ -100,15 +100,16 @@ echo json_encode([
                                 <span class="hidden-xs">{{{ isset(Auth::user()->salutation) ? Auth::user()->salutation : '' }}} {{{ isset(Auth::user()->name) ? Auth::user()->name : '' }}}!</span>
                                 <b class="caret"></b>
                             </a>           
-                            <ul class="dropdown-menu">
+                            <ul class="dropdown-menu quick-dropdown">
                                 <li>
-                                    <a href="{{ url('/users/'.Auth::user()->id) }}" class="glyphicon glyphicon-user"> Profile</a>
+                                    <a href="{{ url('/users/'.Auth::user()->id) }}" class="top-border"><i class="glyphicon glyphicon-user"></i> Profile</a>
                                 </li>
                                 <li>
-                                    <a href="{{ url('/changepasswords/create/') }}" class="glyphicon glyphicon-lock"> Change Password</a>
+                                    <a href="{{ url('/changepasswords/create/') }}"><i class="glyphicon glyphicon-lock"></i> Change Password</a>
                                 </li>
+                                <div class="divider"></div>
                                 <li>
-                                    <a href="{{ url('/logout') }}" class="glyphicon glyphicon-log-out"> Sign Out</a>
+                                    <a href="{{ url('/logout') }}" class="bottom-border"><i class="glyphicon glyphicon-log-out"></i> Sign Out</a>
                                 </li>
 
                             </ul>

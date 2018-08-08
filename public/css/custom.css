@@ -181,7 +181,7 @@ margin-right:1px;
  
  .modal-header-view {
     border-bottom-color: #f4f4f4;
-    padding:5px 50px; background-color:#3c8dbc; 
+    padding:5px 50px; background-color:#ff9c00; 
     color:#fff;font-weight:bold;
     font-size:25px;
 }
@@ -267,6 +267,9 @@ border:#ddd 1px solid;
 	-webkit-animation-delay:1.3s;
 	animation-delay:1.3s;
 }
+.rounded_cornar{border-radius:50px !important;}
+.gray_btn{background:#666666 !important;color:#FFF !important; }
+.btn-disable{ opacity:0.5 !important; }
 @-webkit-keyframes fadeit{
      0%{
           opacity:1;

@@ -31,11 +31,11 @@ $('.popoverOption').each(function() {
       <div class="row">
         <div class="col-md-3 col-sm-6 col-xs-12">
           <div class="info-box">
-            <span class="info-box-icon bg-yellow"><i class="ion ion-ios-people-outline"></i></span>
+            <span class="info-box-icon bg-aqua"><i class="ion ion-ios-gear-outline"></i></span>
 
             <div class="info-box-content">
-              <span class="info-box-text">Users</span>
-              <span class="info-box-number">30,000</span>
+              <span class="info-box-text">CPU Traffic</span>
+              <span class="info-box-number">90<small>%</small></span>
             </div>
             <!-- /.info-box-content -->
           </div>
@@ -44,10 +44,10 @@ $('.popoverOption').each(function() {
         <!-- /.col -->
         <div class="col-md-3 col-sm-6 col-xs-12">
           <div class="info-box">
-            <span class="info-box-icon bg-red"><i class="fa fa-gift"></i></span>
+            <span class="info-box-icon bg-red"><i class="fa fa-google-plus"></i></span>
 
             <div class="info-box-content">
-              <span class="info-box-text">Donation</span>
+              <span class="info-box-text">Likes</span>
               <span class="info-box-number">41,410</span>
             </div>
             <!-- /.info-box-content -->
@@ -60,10 +60,10 @@ $('.popoverOption').each(function() {
 
         <div class="col-md-3 col-sm-6 col-xs-12">
           <div class="info-box">
-            <span class="info-box-icon bg-green"><i class="fa fa-file-text-o"></i></span>
+            <span class="info-box-icon bg-green"><i class="ion ion-ios-cart-outline"></i></span>
 
             <div class="info-box-content">
-              <span class="info-box-text">Order</span>
+              <span class="info-box-text">Sales</span>
               <span class="info-box-number">760</span>
             </div>
             <!-- /.info-box-content -->
@@ -73,10 +73,10 @@ $('.popoverOption').each(function() {
         <!-- /.col -->
         <div class="col-md-3 col-sm-6 col-xs-12">
           <div class="info-box">
-          <span class="info-box-icon bg-aqua"><i class="fa fa-tint"></i></span>
+            <span class="info-box-icon bg-yellow"><i class="ion ion-ios-people-outline"></i></span>
 
             <div class="info-box-content">
-              <span class="info-box-text">Blessings</span>
+              <span class="info-box-text">New Members</span>
               <span class="info-box-number">2,000</span>
             </div>
             <!-- /.info-box-content -->
@@ -88,7 +88,7 @@ $('.popoverOption').each(function() {
       <!-- /.row -->
 
       <div class="row">
-        <div class="col-md-12" style="display:none;">
+        <div class="col-md-12">
           <div class="box">
             <div class="box-header">
               <h3 class="box-title">Monthly Recap Report</h3>
@@ -222,9 +222,9 @@ $('.popoverOption').each(function() {
       <!-- Main row -->
       <div class="row">
         <!-- Left col -->
-        <div class="col-md-12">
+        <div class="col-md-8">
           <!-- MAP & BOX PANE -->
-          <div class="box box-success" style="display:none;">
+          <div class="box box-success">
             <div class="box-header">
               <h3 class="box-title">Visitors Report</h3>
 
@@ -274,7 +274,7 @@ $('.popoverOption').each(function() {
           </div>
           <!-- /.box -->
           <div class="row">
-            <div class="col-md-6" style="display:none;">
+            <div class="col-md-6">
               <!-- DIRECT CHAT -->
               <div class="box box-warning direct-chat direct-chat-warning">
                 <div class="box-header">
@@ -474,7 +474,7 @@ $('.popoverOption').each(function() {
 
             <div class="col-md-6">
               <!-- USERS LIST -->
-              <div class="box box-danger" style="min-height:417px;">
+              <div class="box box-danger">
                 <div class="box-header">
                   <h3 class="box-title">Latest Members</h3>
 
@@ -541,8 +541,10 @@ $('.popoverOption').each(function() {
               <!--/.box -->
             </div>
             <!-- /.col -->
-            <div class="col-md-6">
-            <div class="box box-info" style="min-height:417px;">
+</div>
+          <!-- /.row -->
+ <!-- TABLE: LATEST ORDERS -->
+          <div class="box box-info">
             <div class="box-header">
               <h3 class="box-title">Latest Orders</h3>
 
@@ -553,7 +555,7 @@ $('.popoverOption').each(function() {
               </div>
             </div>
             <!-- /.box-header -->
-            <div class="box-body" style="padding:0px 10px !important;">
+            <div class="box-body">
               <div class="table-responsive">
                 <table class="table no-margin">
                   <thead>
@@ -633,18 +635,13 @@ $('.popoverOption').each(function() {
             </div>
             <!-- /.box-footer -->
           </div>
-            </div>
-</div>
-          <!-- /.row -->
- <!-- TABLE: LATEST ORDERS -->
-          
           <!-- /.box -->
         </div>
         <!-- /.col -->
 
-        <div class="col-md-12">
+        <div class="col-md-4">
           <!-- Info Boxes Style 2 -->
-          <div class="info-box bg-yellow" style="display:none;">
+          <div class="info-box bg-yellow">
             <span class="info-box-icon"><i class="ion ion-ios-pricetag-outline"></i></span>
 
             <div class="info-box-content">
@@ -661,7 +658,7 @@ $('.popoverOption').each(function() {
             <!-- /.info-box-content -->
           </div>
           <!-- /.info-box -->
-          <div class="info-box bg-green" style="display:none;">
+          <div class="info-box bg-green">
             <span class="info-box-icon"><i class="ion ion-ios-heart-outline"></i></span>
 
             <div class="info-box-content">
@@ -678,7 +675,7 @@ $('.popoverOption').each(function() {
             <!-- /.info-box-content -->
           </div>
           <!-- /.info-box -->
-          <div class="info-box bg-red" style="display:none;">
+          <div class="info-box bg-red">
             <span class="info-box-icon"><i class="ion ion-ios-cloud-download-outline"></i></span>
 
             <div class="info-box-content">
@@ -695,7 +692,7 @@ $('.popoverOption').each(function() {
             <!-- /.info-box-content -->
           </div>
           <!-- /.info-box -->
-          <div class="info-box bg-aqua" style="display:none;">
+          <div class="info-box bg-aqua">
             <span class="info-box-icon"><i class="ion-ios-chatbubble-outline"></i></span>
 
             <div class="info-box-content">
@@ -713,7 +710,7 @@ $('.popoverOption').each(function() {
           </div>
           <!-- /.info-box -->
 
-          <div class="box box-default" style="display:none;">
+          <div class="box box-default">
             <div class="box-header">
               <h3 class="box-title">Browser Usage</h3>
 

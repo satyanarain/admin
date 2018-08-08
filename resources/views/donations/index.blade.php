@@ -34,7 +34,7 @@
                         <tr>
                             <th class="display_none"></th>
                             <th>@lang('Name')</th>
-                            <th>@lang('Image')</th>
+                            <th align="center">@lang('Image')</th>
                             <th>@lang('Description')</th>
                             <th>@lang('Price (INR)')</th>
                             <th>@lang('Type')</th>
@@ -47,17 +47,17 @@
                         <tr class="nor_f">
                             <th class="display_none"></th>
                             <td>{{$value->name}}</td>
-                            <td>{{ Html::image('images/donation/thumbnail/'.$value->image_name,'alt',array('class'=>'test'))}}</td>
+                            <td align="center">{{ Html::image('images/donation/thumbnail/'.$value->image_name,'alt',array('class'=>'test'))}}</td>
                             <td><?php echo substr($value->description,0,50)."...." ?></td>
                             <td>{{$value->price}}</td>
                             <td>
                                 @if($value->donation_list!='')
-                                <span style="background-color:#398439; color:#fff; padding:2px 10px 2px 15px;"> 
-                                    Donation</span> &nbsp;&nbsp;&nbsp;
+                                <span class="btn btn-warning rounded_cornar"> 
+                                    Donation</span>
                                 @endif
                                
                                 @if($value->purchase_list!='')
-                                <span style="background-color:#f39c12; color:#fff; padding:2px 10px 2px 15px;">
+                                <span class="btn btn-default gray_btn rounded_cornar">
                                     Purchase
                                 </span>  
                                 @endif
@@ -121,7 +121,7 @@ function statusUpdate(id)
    
     if(data==1)
     {
-    $("#"+id).removeClass('btn-danger');   
+    $("#"+id).removeClass('btn-danger ');   
     $("#"+id).addClass('btn-success');  
     $("#ai"+id).html('Active');    
     }else{

@@ -268,31 +268,31 @@ function actionEdit($action = '', $id = '',$status='') {
  ?>
         <td>
           <?php  if(in_array('edit',$array_all)){ ?>
-             <a  href="<?php echo route($segments[0] . "." . $action, $id) ?>" class="btn btn-small btn-primary-edit" ><span class="glyphicon glyphicon-pencil"></span>&nbsp;Edit</a>&nbsp;&nbsp;&nbsp;&nbsp;
+             <a href="<?php echo route($segments[0] . "." . $action, $id) ?>" title="Edit" class="btn btn-default gray_btn rounded_cornar" ><span class="glyphicon glyphicon-pencil"></span></a>
           <?php } ?>
     <?php if($segments[0]=='users' || $segments[0]=='registers'){?>
                <?php  if(in_array('view',$array_all)){ ?>
-              <a  class="btn btn-small btn-primary" href="<?php echo route('users.show', $id); ?>" ><span class="glyphicon glyphicon-search"></span>&nbsp;View</a>&nbsp;&nbsp;&nbsp;&nbsp;
+              <a  class="btn btn-small btn-primary rounded_cornar" title="View" href="<?php echo route('users.show', $id); ?>" ><span class="glyphicon glyphicon-eye-open"></span>
                       <?php } ?>
                   <?php }else{ ?>
                 <?php  if(in_array('view',$array_all)){ ?>
-               <button  class="btn btn-small btn-primary"   onclick="viewDetails(<?php echo $id ?>,'view_detail');"><span class="glyphicon glyphicon-search"></span>&nbsp;View</button>&nbsp;&nbsp;&nbsp;&nbsp;
+               <button  class="btn btn-small btn-primary rounded_cornar" title="View" onclick="viewDetails(<?php echo $id ?>,'view_detail');"><span class="glyphicon glyphicon-eye-open"></span></button>
               <?php } ?>
                <?php } ?>
               <?php if($segments[0]=='users' || $segments[0]=='donations'){?>
              <div 
                  <?php if($status==1)
                  { ?>
-                 class="btn btn-small btn-success" 
+                 class="btn btn-warning rounded_cornar" 
                <?php }else{ ?>
-                    class="btn btn-small btn-danger" 
+                    class="btn btn-warning btn-disable rounded_cornar" 
               <?php } ?>
                  id="<?php echo $id; ?>" onclick="statusUpdate(this.id,'<?php echo $segments[0];?>')">
                    <?php if($status==1)
                  { ?>
-                    <span id="<?php echo "ai".$id; ?>"><i class="fa fa-check-circle"></i>&nbsp;Active</span>
+                    <span id="<?php echo "ai".$id; ?>"><i class="glyphicon glyphicon-ok"></i>&nbsp;Active</span>
                <?php }else{ ?>
-                     <span id="<?php echo "ai".$id; ?>"><i class="fa fa-times-circle"></i>&nbsp;Inctive</span>
+                     <span id="<?php echo "ai".$id; ?>"><i class="glyphicon glyphicon-remove"></i>&nbsp;Inctive</span>
               <?php } ?></div>
           <?php } ?>
         </td>
@@ -331,11 +331,11 @@ function createButton($action = '', $title='',$order='',$order_id='',$privious='
    
   if(in_array('create',$array_menu) && in_array($segments[0],$array_menu)){
   ?>
-   <a href="<?php  echo route($segments[0].".".$action) ?>"><button class="btn btn-primary pull-right"><i class="fa fa-plus"></i>&nbsp;<?php echo $title; ?></button></a>
+   <a href="<?php  echo route($segments[0].".".$action) ?>"><button class="btn btn-default gray_btn rounded_cornar"><i class="fa fa-plus"></i>&nbsp;<?php echo $title; ?></button></a>
    <?php if($order!=''){ ?>
  </br>
  </br>
-      <button  class="btn btn-primary pull-left"  onclick="orderList('order_id','order_list')"><span class="fa fa-sort-desc"></span>&nbsp;Update Order</button>&nbsp;&nbsp;&nbsp;&nbsp;
+      <button  class="btn btn-default gray_btn rounded_cornar"  onclick="orderList('order_id','order_list')"><span class="fa fa-sort-desc"></span>&nbsp;Update Order</button>&nbsp;&nbsp;&nbsp;&nbsp;
  <?php 
    }
 }   

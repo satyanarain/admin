@@ -4531,8 +4531,9 @@ border-radius: 4px;
 {
         background: rgba(0,0,0,0.6);
         border-radius: 10px;
-        padding: 30px;
-        width: 600px;
+        padding: 20px 20px 10px 20px;
+        
+        width: 400px;
         transform: translate(-50%,0%);
         position: absolute;
         left: 50%;
@@ -4579,3 +4580,7 @@ input[type="text"]:focus {outline:0;}
 .input-text{ background: rgba(255,255,255,0.6);margin-bottom:15px;padding: 18px 12px !important;}
 .login-btn{background:#ffc107 !important;color:#7c370f !important;border:2px solid #ffc107 !important;padding:4px 40px 6px 40px !important;margin-top:20px  !important;border-radius:30px !important;cursor:pointer  !important;font-weight:500  !important;font-size:16px  !important; margin-bottom:10px  !important; font-size:20px  !important;}
 .login-btn:hover{ background:none !important; color:#ffc107 !important; border:2px solid #ffc107 !important;text-decoration:none !important;}
+
+@media(max-width:768px)
+{.account-wall{width:350px;}
+}
