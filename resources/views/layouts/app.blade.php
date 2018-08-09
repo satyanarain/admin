@@ -120,7 +120,13 @@ echo json_encode([
      <section class="sidebar">
            <ul class="sidebar-menu">
                     <!--<li class="header">MAIN NAVIGATION</li>-->
-                    <li class="active treeview">
+                    <li 
+                        @if($segments_var[0]=='dashboard')
+                        class="active treeview"
+                        @else
+                         class="treeview"
+                         @endif
+                        >
                        <a href="{{route('dashboard')}}">
                             <i class="fa fa-dashboard"></i> <span>Dashboard</span>
                         </a>
@@ -332,7 +338,7 @@ $.widget.bridge('uibutton', $.ui.button);
 <!-- AdminLTE App -->
 <script src="{{ asset(elixir('js/app.min.js')) }}"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="{{ asset(elixir('js/pages/dashboard2.js')) }}"></script>
+
 
 <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
 
@@ -347,7 +353,7 @@ $.widget.bridge('uibutton', $.ui.button);
 
  <link rel="stylesheet" href="{{ asset('css/buttons.dataTables.min.css') }}">
 <style type="text/css" class="init"></style>
-<script type="text/javascript" src="jquery-1.12.0.min.js"></script>
+
 <script type="text/javascript" src="https://cdn.datatables.net/tabletools/2.2.4/js/dataTables.tableTools.min.js"></script>
 <!--<script type="text/javascript" src="https://cdn.datatables.net/tabletools/2.2.2/swf/copy_csv_xls_pdf.swf"></script>-->
 <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.colVis.min.js"></script>
@@ -358,7 +364,7 @@ $.widget.bridge('uibutton', $.ui.button);
 <script type="text/javascript" src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/vfs_fonts.js"></script>
 <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.1.2/js/buttons.html5.min.js"></script>
 <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.1.2/js/buttons.print.min.js"></script>
-
+<script src="{{ asset(elixir('js/pages/dashboard2.js')) }}"></script>
 
 <script type="text/javascript">
   

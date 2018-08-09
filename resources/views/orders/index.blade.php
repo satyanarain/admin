@@ -25,6 +25,8 @@
                     <thead>
                         <tr>
                             <th class="display_none"></th>
+                             <th>@lang('Item Name')</th>
+                            <th>@lang('Image')</th>
                             <th>@lang('Order Number')</th>
                             <th>@lang('Name')</th>
                             <th>@lang('Ceated')</th>
@@ -39,17 +41,43 @@
                         @foreach($orders as $value)
                         <tr class="nor_f">
                             <th class="display_none"></th>
+                             <td>{{$value->name}}</td>
+                            <td>{{ Html::image('images/donation/thumbnail/'.$value->image_name,'alt',array('class'=>'test'))}}</td>
                             <td>{{$value->order_number}}</td>
-                            <td>{{$value->name}}</td>
+                            <td>{{$value->user_name}}</td>
                             <td>{{dateView($value->created_at)}}</td>
                             <td>{{$value->total_price}}</td>
+                             <td>
+                                   @if($value->donation_list!='')
+                                <span style="background-color:#398439; color:#fff; padding:2px 10px 2px 15px;"> 
+                                    Donation</span> &nbsp;&nbsp;&nbsp;
+                                @endif
+                               
+                                @if($value->purchase_list!='')
+                                <span style="background-color:#f39c12; color:#fff; padding:2px 10px 2px 15px;">
+                                    Purchase
+                                </span>  
+                                @endif
+                           </td>
+                             
                              <td> 
-                   <?php if($status==1)
-                 { ?>
-                    Complete
-               <?php }else{ ?>
-                     Pending
-              <?php } ?></td>
+                               
+                                <div 
+                                    <?php if($status==1)
+                                    { ?>
+                                    class="btn btn-small btn-success" 
+                                  <?php }else{ ?>
+                                       class="btn btn-small btn-danger" 
+                                 <?php } ?>
+                                    id="{{$value->id}}" onclick="statusUpdate_new(this.id)">
+                                      <?php if($status==1)
+                                    { ?>
+                                       <span id="<?php echo "ai".$id; ?>"><i class="fa fa-check-circle"></i>&nbsp;Active</span>
+                                  <?php }else{ ?>
+                                        <span id="<?php echo "ai".$id; ?>"><i class="fa fa-times-circle"></i>&nbsp;Inctive</span>
+                                 <?php } ?>
+                                </div>
+                             </td>
                             {{ actionEdit('edit',$value->id,$value->status)}}
                          </tr>
                         @endforeach
@@ -71,7 +99,7 @@
 <script>
  function viewDetails(id,view_detail)
 {
-//alert("rtrtr");
+
  var urldata=   '/orders/' + view_detail + '/' +id;
 
 $.ajax({
@@ -86,15 +114,10 @@ $.ajax({
 	});
   
    }
-   
-</script>
-<script>
-    
-
-
+ 
 function statusUpdate_new(id)
 {
- //  alert("rere")
+alert("rere")
  $.ajax({
     type:'get',
     url:'/orders/statusupdate/'+id,

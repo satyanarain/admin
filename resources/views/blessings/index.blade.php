@@ -28,8 +28,7 @@
                     <thead>
                         <tr>
                             <th class="display_none"></th>
-                            
-                            <th>@lang('Audio / Video')</th>
+                             <th>@lang('Audio / Video')</th>
                             <th>@lang('Date')</th>
                             <th>@lang('blessings')</th>
                           {{  actionHeading('Action', $newaction='') }}
@@ -45,9 +44,7 @@
                                 <a  onclick="viewDetails({{$value->id}},'view_detail');" >  
                                 
                               <?php 
-                              //  $value->image_name;
-                              
-                              
+                             
                               if ($value->image_name!= '') {
                                   $array = explode('.', $value->image_name);
 
@@ -60,25 +57,9 @@
                                   if (in_array($extension_lower, $audio_lover)) {
                                       ?>
                                 {{Html::image('images/audio.png','audio',array('style'=>'width:50px; height:50px;'))}}
-<!--                                <audio controls>
-                                        <source src="horse.ogg" type="audio/ogg">
-                                        <source src="{{asset('images/blessings/'.$value->image_name)}}" type="audio/mpeg">
-                                        
-                                    </audio> -->
+
                                <?php } else{ ?>
                                {{Html::image('images/video.png','video',array('style'=>'width:50px; height:50px;'))}}
-<!--                                   <video width="320" height="240" controls>
-                                     <source src="http://upload.wikimedia.org/wikipedia/commons/7/79/Big_Buck_Bunny_small.ogv" type="video/mp4">
-                                     <source src="movie.ogg" type="video/ogg">
-                                   </video> -->
-
-<!--<video width="560" height="340" controls> <source src="{{asset('images/blessings/'.$value->image_name)}}" type='video/<?php //echo $extension; ?>; codecs="avc1.42E01E, mp4a.40.2"'> 
-    <source src="path/to/myvideo.ogv" type='video/ogg; codecs="theora, vorbis"'>
-    <object width="640" height="384" type="application/x-shockwave-flash" 
-            data="path/to/swf/player.swf?image=placeholder.jpg&file=path/to/myvideo.mp4">
-        <param name="movie" value="path/to/swf/player.swf?image=placeholder.jpg&file=path/to/myvideo.<?php //echo $extension; ?>" />
-    </object> </video>-->
-
 
                                  <?php }}else{ 
                                     echo "N/A";
@@ -126,6 +107,8 @@
     erwerewre
     
  </div>
+
+@include('partials.table_script')
 <script>
     $(function() {
   var canvas = document.getElementById('canvas');
@@ -218,6 +201,5 @@ function statusUpdate(id)
 </script>
 <!-- /.row -->
 
-@include('partials.table_script')
 
 @stop

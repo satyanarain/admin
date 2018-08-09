@@ -282,7 +282,7 @@ function actionEdit($action = '', $id = '',$status='') {
                <?php } ?>
               <?php } ?>
                <?php } ?>
-              <?php if($segments[0]=='users' || $segments[0]=='donations' || $segments[0]=='orders'){?>
+              <?php if($segments[0]=='users' || $segments[0]=='donations'){?>
              <div 
                  <?php if($status==1)
                  { ?>

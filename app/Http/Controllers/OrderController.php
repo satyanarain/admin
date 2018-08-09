@@ -14,9 +14,6 @@ use App\Models\Order;
 use App\Http\Requests;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-//use App\Http\Requests\Order\UpdateOrderRequest;
-//use App\Http\Requests\Order\StoreOrderRequest;
-//use App\Repositories\Order\OrderRepositoryContract;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use App\Traits\activityLog;
@@ -26,33 +23,21 @@ use activityLog;
    protected $orders;
    protected $users;
 
-//    public function __construct(
-//    OrderRepositoryContract $orders
-//    ) {
-//        $this->orders = $orders;
-//        $this->users = $users;
-//    }
- 
-    /**
-     * Display a listing of the resource.
-     ** @Author created by satya 19-07-2018 
-     * @return Response
-     */
  public function index(Request $request) {
      
         // $orders = Order::paginate(10);
-         $orders= DB::table('orders')
-        ->join('registers', 'registers.id', '=', 'orders.user_id')
-        ->join('blessings', 'blessings.id', '=', 'orders.item_id')
+         $orders= DB::table('orders')->select('*','orders.id as id','orders.created_at as created_at','orders.status as status','registers.name as user_name')
+        ->leftjoin('registers', 'registers.id', '=', 'orders.user_id')
+        ->leftjoin('donations', 'donations.id', '=', 'orders.item_id')
         ->orderBy('orders.id', 'desc')
-        ->select('orders.*','registers.*','orders.id as id','orders.created_at as created_at','orders.status as status')
-        ->paginate(10);
+          ->paginate(10);
+//         echo "<pre>";
+//         print_r($orders);
+//         echo "</pre>";
+//         exit();
          return view('orders.index',compact('orders'));
     
  }
- 
-
-
  /**
      * Display a listing of the resource.
      ** @Author created by satya 19-07-2018 
@@ -65,9 +50,10 @@ use activityLog;
     
     public function viewDetail($id) {
        $value = DB::table('orders')
-        ->join('registers', 'registers.id', '=', 'orders.user_id')
+        ->leftjoin('registers', 'registers.id', '=', 'orders.user_id')
+        ->leftjoin('donations', 'donations.id', '=', 'orders.item_id')
         ->orderBy('orders.id', 'desc')
-        ->select('orders.*','registers.*','orders.id as id','orders.created_at as created_at','orders.status as status')
+        ->select('orders.*','registers.*','donations.*','orders.id as id','orders.created_at as created_at','orders.status as status','registers.name as user_name')
         ->first();
            
         ?>
@@ -80,38 +66,67 @@ use activityLog;
             </div>
             <div class="modal-body-view">
                  <table class="table table-responsive.view">
+                      <tr>       
+                        <td><b>Item Name</b></td>
+                        <td class="table_normal"><?php  echo $value->name ?></span></td>
+                    </tr>
+                    <tr>
+                        <td><b>Image</b></td>
+                            <?php  $url = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]"."/images/donation/thumbnail/"; ?>
+                        
+                        <td class="table_normal"><img src="<?php echo $url.$value->image_name;?>" >
+                            </span></td>
+                    </tr>
                     <tr>       
                         <td><b>Order Number</b></td>
                         <td class="table_normal"><?php  echo $value->order_number ?></span></td>
                     </tr>
                     <tr>
                         <td><b>Name</b></td>
-                        <td class="table_normal"><?php echo $value->name; ?></span></td>
+                        <td class="table_normal"><?php echo $value->user_name; ?></span></td>
                     </tr>
                     <tr>
                         <td><b>Price</b></td>
                         <td class="table_normal"><?php echo $value->total_price; ?></td>
                     </tr>
+                     <tr>
+                        <td><b>Type of order</b></td>
+                    <td>
+                                 <?php if($value->donation_list!='')
+                                 {
+                                     ?>
+                                <span style="background-color:#398439; color:#fff; padding:2px 10px 2px 15px;"> 
+                                    Donation</span> &nbsp;&nbsp;&nbsp;
+    <?php } ?>
+                               
+                               <?php if($value->purchase_list!='')
+                               { ?>
+                                <span style="background-color:#f39c12; color:#fff; padding:2px 10px 2px 15px;">
+                                    Purchase
+                                </span>  
+                                  <?php } ?>
+                           </td>
+                    </tr>
+                    
+                    
                     <tr>
                     <td><b>Created At</b></td>
                      <td class="table_normal"><?php echo dateView($value->created_at); ?>
                      </td>
                      </tr>
-                      <tr>
+                   <tr>
                     <td><b>Status</b></td>
                      <td class="table_normal"><?php if($value->status==1)
                      {
-                         echo "Complete";
+                         echo "Active";
                      } else {
-                         echo "Pending";  
+                         echo "Inactive";  
+                      }
                      
-                         
-                     }
-                     
-                   ?>
+                       ?>
                      </td>
-                        <tr>
-                      </table>  
+                     </tr>
+                    </table>  
                   <div class="modal-footer">
                     <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
                 </div>
@@ -179,10 +194,7 @@ use activityLog;
        echo 0;
        }
     }
-    
-    
-    
-    /**
+     /**
      * Display the specified resource.
      *
      * @param  int  $id
