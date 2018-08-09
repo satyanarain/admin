@@ -21,7 +21,7 @@
  {!! Form::close() !!}
             <!-- /.box-header -->
             <div class="box-body">
-                <table id="example1" class="table table-bordered table-striped">
+                <table id="example1" class="table table-bordered table-striped table-cus">
                     <thead>
                         <tr>
                             <th class="display_none"></th>
@@ -67,14 +67,14 @@
                                     { ?>
                                     class="btn btn-small btn-success" 
                                   <?php }else{ ?>
-                                       class="btn btn-small btn-danger" 
+                                       class="btn btn-small btn-danger rounded_cornar" 
                                  <?php } ?>
                                     id="{{$value->id}}" onclick="statusUpdate_new(this.id)">
                                       <?php if($status==1)
                                     { ?>
-                                       <span id="<?php echo "ai".$id; ?>"><i class="fa fa-check-circle"></i>&nbsp;Active</span>
+                                       <span id="<?php echo "ai".$id; ?>"><i class="fa fa-check-circle"></i> Active</span>
                                   <?php }else{ ?>
-                                        <span id="<?php echo "ai".$id; ?>"><i class="fa fa-times-circle"></i>&nbsp;Inctive</span>
+                                        <span id="<?php echo "ai".$id; ?>"><i class="fa fa-times-circle"></i> Inactive</span>
                                  <?php } ?>
                                 </div>
                              </td>

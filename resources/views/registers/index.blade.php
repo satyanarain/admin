@@ -13,10 +13,8 @@
              @include('partials.message')
             <!-- /.box-header -->
             <div class="panel-body">
-               <table id="example1" class="table table-bordered table-striped">
+               <table id="example1" class="table table-bordered table-striped table-cus">
                     <thead>
-                        
-                        
                         <tr>
                             <th class="display_none"></th>
                             <th>@lang('user.headers.name')</th>
@@ -44,7 +42,7 @@
                             <td>{{$value->country_code}}</td>
                             <td>{{$value->ip_address}}</td>
                             <td>{{$value->created_at}}</td>
-                            <td><a  class="btn btn-small btn-primary" href="<?php echo route('registers.show', $value->id); ?>" ><span class="glyphicon glyphicon-search"></span>&nbsp;View</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <td align="center"><a title="View" class="btn btn-small btn-primary" href="<?php echo route('registers.show', $value->id); ?>" ><span class="glyphicon glyphicon-search"></span></a>
                         </td>
                         </tr>
                         @endforeach

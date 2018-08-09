@@ -24,11 +24,11 @@
   {!! Form::close() !!}
             <!-- /.box-header -->
             <div class="box-body">
-                <table id="example1" class="table table-bordered table-striped">
+                <table id="example1" class="table table-bordered table-striped table-cus">
                     <thead>
                         <tr>
-                            <th class="display_none"></th>
-                             <th>@lang('Audio / Video')</th>
+                            <th class="display_none text-center"></th>
+                             <th class="text-center">@lang('Audio / Video')</th>
                             <th>@lang('Date')</th>
                             <th>@lang('blessings')</th>
                           {{  actionHeading('Action', $newaction='') }}
@@ -40,7 +40,7 @@
                          <tr class="nor_f" id="{{$value->id}}">
                             <th class="display_none"></th>
 
-                            <td>
+                            <td class="text-center">
                                 <a  onclick="viewDetails({{$value->id}},'view_detail');" >  
                                 
                               <?php 

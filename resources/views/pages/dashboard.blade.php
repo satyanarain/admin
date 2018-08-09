@@ -476,7 +476,7 @@ $('.popoverOption').each(function() {
               <!-- USERS LIST -->
               <div class="box box-danger" style="min-height:417px;">
                 <div class="box-header">
-                  <h3 class="box-title">Latest Members</h3>
+                  <h3 class="box-title"><i class="glyphicon glyphicon-user theme-color"></i> Latest Members</h3>
 
                   <div class="box-tools pull-right">
                     <span class="label label-danger">8 New Members</span>
@@ -490,51 +490,52 @@ $('.popoverOption').each(function() {
                 <div class="box-body no-padding">
                   <ul class="users-list clearfix">
                     <li>
-                      <img src="dist/img/user1-128x128.jpg" alt="User Image">
+                      <img src="{{ asset("/images/user.png") }}" alt="User Image">
                       <a class="users-list-name" href="#">Alexander Pierce</a>
                       <span class="users-list-date">Today</span>
                     </li>
                     <li>
-                      <img src="dist/img/user8-128x128.jpg" alt="User Image">
+                      <img src="{{ asset("/images/user.png") }}" alt="User Image">
                       <a class="users-list-name" href="#">Norman</a>
                       <span class="users-list-date">Yesterday</span>
                     </li>
                     <li>
-                      <img src="dist/img/user7-128x128.jpg" alt="User Image">
+                      <img src="{{ asset("/images/user.png") }}" alt="User Image">
                       <a class="users-list-name" href="#">Jane</a>
                       <span class="users-list-date">12 Jan</span>
                     </li>
                     <li>
-                      <img src="dist/img/user6-128x128.jpg" alt="User Image">
+                      <img src="{{ asset("/images/user.png") }}" alt="User Image">
                       <a class="users-list-name" href="#">John</a>
                       <span class="users-list-date">12 Jan</span>
                     </li>
                     <li>
-                      <img src="dist/img/user2-160x160.jpg" alt="User Image">
+                      <img src="{{ asset("/images/user.png") }}" alt="User Image">
                       <a class="users-list-name" href="#">Alexander</a>
                       <span class="users-list-date">13 Jan</span>
                     </li>
                     <li>
-                      <img src="dist/img/user5-128x128.jpg" alt="User Image">
+                      <img src="{{ asset("/images/user.png") }}" alt="User Image">
                       <a class="users-list-name" href="#">Sarah</a>
                       <span class="users-list-date">14 Jan</span>
                     </li>
                     <li>
-                      <img src="dist/img/user4-128x128.jpg" alt="User Image">
+                      <img src="{{ asset("/images/user.png") }}" alt="User Image">
                       <a class="users-list-name" href="#">Nora</a>
                       <span class="users-list-date">15 Jan</span>
                     </li>
                     <li>
-                      <img src="dist/img/user3-128x128.jpg" alt="User Image">
+                      <img src="{{ asset("/images/user.png") }}" alt="User Image">
                       <a class="users-list-name" href="#">Nadia</a>
                       <span class="users-list-date">15 Jan</span>
                     </li>
+                    
                   </ul>
                   <!-- /.users-list -->
                 </div>
                 <!-- /.box-body -->
-                <div class="box-footer text-center">
-                  <a href="javascript:void(0)" class="uppercase">View All Users</a>
+                <div class="box-footer pull-right" style="border-top:0px !important;">
+                  <a href="javascript:void(0)" class="uppercase">View All Users..</a>
                 </div>
                 <!-- /.box-footer -->
               </div>
@@ -544,7 +545,7 @@ $('.popoverOption').each(function() {
             <div class="col-md-6">
             <div class="box box-info" style="min-height:417px;">
             <div class="box-header">
-              <h3 class="box-title">Latest Orders</h3>
+              <h3 class="box-title"><i class="glyphicon glyphicon-list-alt theme-color"></i> Latest Orders</h3>
 
               <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
@@ -628,8 +629,8 @@ $('.popoverOption').each(function() {
             </div>
             <!-- /.box-body -->
             <div class="box-footer clearfix">
-              <a href="javascript:void(0)" class="btn btn-sm btn-info btn-flat pull-left">Place New Order</a>
-              <a href="javascript:void(0)" class="btn btn-sm btn-default btn-flat pull-right">View All Orders</a>
+              <a href="javascript:void(0)" class="btn btn-warning rounded_cornar">Place New Order</a>
+              <a href="javascript:void(0)" class="btn btn-default gray_btn rounded_cornar pull-right">View All Orders</a>
             </div>
             <!-- /.box-footer -->
           </div>
@@ -764,7 +765,7 @@ $('.popoverOption').each(function() {
  <!-- PRODUCT LIST -->
           <div class="box box-primary">
             <div class="box-header">
-              <h3 class="box-title">Recently Added Products</h3>
+              <h3 class="box-title"><img src="{{ asset("/images/product-head.png") }}" alt="product head" style="margin-top:-5px;"> Recently Added Products</h3>
 
               <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
@@ -777,7 +778,7 @@ $('.popoverOption').each(function() {
               <ul class="products-list product-list-in-box">
                 <li class="item">
                   <div class="product-img">
-                    <img src="dist/img/default-50x50.gif" alt="Product Image">
+                    <img src="{{ asset("/images/product-img.png") }}" alt="Product Image">
                   </div>
                   <div class="product-info">
                     <a href="javascript:void(0)" class="product-title">Samsung TV
@@ -790,7 +791,7 @@ $('.popoverOption').each(function() {
                 <!-- /.item -->
                 <li class="item">
                   <div class="product-img">
-                    <img src="dist/img/default-50x50.gif" alt="Product Image">
+                    <img src="{{ asset("/images/product-img.png") }}" alt="Product Image">
                   </div>
                   <div class="product-info">
                     <a href="javascript:void(0)" class="product-title">Bicycle
@@ -803,7 +804,7 @@ $('.popoverOption').each(function() {
                 <!-- /.item -->
                 <li class="item">
                   <div class="product-img">
-                    <img src="dist/img/default-50x50.gif" alt="Product Image">
+                    <img src="{{ asset("/images/product-img.png") }}" alt="Product Image">
                   </div>
                   <div class="product-info">
                     <a href="javascript:void(0)" class="product-title">Xbox One <span class="label label-danger pull-right">$350</span></a>
@@ -815,7 +816,7 @@ $('.popoverOption').each(function() {
                 <!-- /.item -->
                 <li class="item">
                   <div class="product-img">
-                    <img src="dist/img/default-50x50.gif" alt="Product Image">
+                    <img src="{{ asset("/images/product-img.png") }}" alt="Product Image">
                   </div>
                   <div class="product-info">
                     <a href="javascript:void(0)" class="product-title">PlayStation 4
@@ -829,8 +830,8 @@ $('.popoverOption').each(function() {
               </ul>
             </div>
             <!-- /.box-body -->
-            <div class="box-footer text-center">
-              <a href="javascript:void(0)" class="uppercase">View All Products</a>
+            <div class="box-footer pull-right" style="border-top:0px !important;">
+              <a href="javascript:void(0)" class="uppercase">View All Products..</a>
             </div>
             <!-- /.box-footer -->
           </div>

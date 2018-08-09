@@ -29,12 +29,12 @@
   {!! Form::close() !!}
             <!-- /.box-header -->
             <div class="box-body">
-                <table id="example1" class="table table-bordered table-striped">
+                <table id="example1" class="table table-bordered table-striped table-cus">
                     <thead>
                         <tr>
                             <th class="display_none"></th>
                             <th>@lang('Name')</th>
-                            <th align="center">@lang('Image')</th>
+                            <th align="center" class="text-center">@lang('Image')</th>
                             <th>@lang('Description')</th>
                             <th>@lang('Price (INR)')</th>
                             <th>@lang('Type')</th>
@@ -52,12 +52,12 @@
                             <td>{{$value->price}}</td>
                             <td>
                                 @if($value->donation_list!='')
-                                <span class="btn btn-warning rounded_cornar"> 
+                                <span class="label label-warning"> 
                                     Donation</span>
                                 @endif
                                
                                 @if($value->purchase_list!='')
-                                <span class="btn btn-default gray_btn rounded_cornar">
+                                <span class="label label-default">
                                     Purchase
                                 </span>  
                                 @endif
