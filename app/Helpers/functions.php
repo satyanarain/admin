@@ -15,7 +15,6 @@ function displayIdBaseName($table = '', $id = '', $fieldname = '') {
         echo "N/A";
     }
 }
-
 function displayView($fieldname) {
     if ($fieldname != '') {
         echo $fieldname;
@@ -23,7 +22,6 @@ function displayView($fieldname) {
         echo "N/A";
     }
 }
-
 function dateView($date_blank) {
     if ($date_blank == "0000-00-00" || $date_blank == '') {
         echo "N/A";
@@ -32,20 +30,17 @@ function dateView($date_blank) {
         ;
     }
 }
-
 function changeDateFromYMDToDMY($dateToConvert = "") {
     if ($dateToConvert == '0000-00-00' || $dateToConvert == '') {
         $result = '';
     } else {
         $result = date('d-m-Y', strtotime($dateToConvert));
     }
-
     return $result;
 }
 function maxId($table='',$fieldname='')
 {
 $maxid = DB::table($table)->where($fieldname, DB::raw("(select max($fieldname) from $table)"))->first();
-
 if($fieldname!='')
 {
 if($maxid->$fieldname!='')
@@ -55,13 +50,9 @@ if($maxid->$fieldname!='')
  return $maxid->$fieldname=1;
 }
 } else {
-
  return  $maxid;  
 }
-
-
 }
-
 function orderList($table='',$id='',$field1='',$field2='',$field3='',$field4='',$t1='',$t1_id='',$t2='',$t2_id='')
 {
     
@@ -111,7 +102,6 @@ function orderList($table='',$id='',$field1='',$field2='',$field3='',$field4='',
        
 <?php
 }
-
 function BreadCrumb() {
     $segments = '';
     $segments = Request::segments();
@@ -147,7 +137,6 @@ function BreadCrumb() {
     </ol>
         <?php } ?>
         <?php
-
         function headingBold() {
             $segments = '';
             $segments = Request::segments();
@@ -161,7 +150,6 @@ function BreadCrumb() {
             ?> 
     <?php
 }
-
 function headingMain() {
     $segments = '';
     $segments = Request::segments();
@@ -179,8 +167,6 @@ function headingMain() {
         echo "List of All " . ucwords($segments_value);
     }
 }
-
-
 function PopUpheadingMain($result) {
     $segments = '';
     $segments = Request::segments();
@@ -192,7 +178,6 @@ function PopUpheadingMain($result) {
 }
 ?>
 <?php
-
 function displayList($table = '', $fieldname = '', $orderby_fieldname='',$asc_dsc='') {
     
         if($orderby_fieldname!='')
@@ -223,7 +208,6 @@ function displayPath($fieldname = '',$path_id='',$deviated_path='') {
         
 ?>
 <select name="<?php echo htmlentities($fieldname); ?>" class="form-control"><option value="">Select Path</option><?php foreach($routes as $value){ ?><option value="<?php echo $value->id; ?>"<?php if($value->id==$selected){ ?>selected="selected"<?php } ?>><?php echo htmlentities($value->route); ?><?php echo ucfirst(substr($value->direction,0,1));?> : <?php htmlentities(displayIdBaseName('stops',$value->source,'stop')); ?> - <?php htmlentities(displayIdBaseName('stops',$value->destination,'stop')); ?> via- <?php htmlentities(displayIdBaseName('stops',$value->via,'stop')); ?></option> <?php } ?></select><?php   }
-
 function dispalyImage($imagepath = '', $imagename, $class = '', $alt = '', $style = '') {
  if (file_exists($path)) {
          if ($imagename) {
@@ -236,8 +220,6 @@ function dispalyImage($imagepath = '', $imagename, $class = '', $alt = '', $styl
         echo Html::image('images/photo/no_image.png','',array('class'=>$class,'alt'=>$alt,'style'=>$style));
     }
 }
-
-
 function menuPermission($controllerName) {
  $user_id = Auth::id();
  $result= DB::table('permission_details')->where('user_id',$user_id)->first();
@@ -255,9 +237,7 @@ function dateViewWithTime($date_blank) {
         echo $date_blank = date("d-m-Y H:i:s", strtotime($date_blank));
         ;
     }
-
 }
-
 function actionEdit($action = '', $id = '',$status='') {
  $segments = '';
  $segments = Request::segments();
@@ -268,34 +248,34 @@ function actionEdit($action = '', $id = '',$status='') {
  ?>
         <td>
           <?php  if(in_array('edit',$array_all)){ ?>
-             <a  href="<?php echo route($segments[0] . "." . $action, $id) ?>" class="btn btn-small btn-primary-edit" ><span class="glyphicon glyphicon-pencil"></span>&nbsp;Edit</a>&nbsp;&nbsp;&nbsp;&nbsp;
+             <a href="<?php echo route($segments[0] . "." . $action, $id) ?>" title="Edit" class="btn btn-default gray_btn rounded_cornar" ><span class="glyphicon glyphicon-pencil"></span></a>
           <?php } ?>
     <?php if($segments[0]=='users' || $segments[0]=='registers'){?>
                <?php  if(in_array('view',$array_all)){ ?>
-              <a  class="btn btn-small btn-primary" href="<?php echo route('users.show', $id); ?>" ><span class="glyphicon glyphicon-search"></span>&nbsp;View</a>&nbsp;&nbsp;&nbsp;&nbsp;
+              <a  class="btn btn-small btn-primary rounded_cornar" title="View" href="<?php echo route('users.show', $id); ?>" ><span class="glyphicon glyphicon-eye-open"></span>
                       <?php } ?>
                   <?php }else{ ?>
                 <?php  if(in_array('view',$array_all)){ ?>
-               <button  class="btn btn-small btn-primary"   onclick="viewDetails(<?php echo $id ?>,'view_detail');"><span class="glyphicon glyphicon-search"></span>&nbsp;View</button>&nbsp;&nbsp;&nbsp;&nbsp;
-               <?php if($segments[0]=='blessings'){?>
-                <button  class="btn btn-small btn-danger"   onclick="viewDelete(<?php echo $id ?>);"><i class="fa fa-trash-o"></i>&nbsp;Delete</button>&nbsp;&nbsp;&nbsp;&nbsp;
-               <?php } ?>
+               <button  class="btn btn-small btn-primary rounded_cornar" title="View" onclick="viewDetails(<?php echo $id ?>,'view_detail');"><span class="glyphicon glyphicon-eye-open"></span></button>
               <?php } ?>
+                <?php if($segments[0]=='blessings'){?>
+                <button  class="btn btn-small btn-danger rounded_cornar"   onclick="viewDelete(<?php echo $id ?>);"><i class="fa fa-trash-o"></i></button>&nbsp;&nbsp;&nbsp;&nbsp;
                <?php } ?>
-              <?php if($segments[0]=='users' || $segments[0]=='donations'){?>
+               <?php } ?>
+              <?php if($segments[0]=='users' || $segments[0]=='donations' || $segments[0]=='orders'){?>
              <div 
                  <?php if($status==1)
                  { ?>
-                 class="btn btn-small btn-success" 
+                 class="btn btn-warning rounded_cornar" 
                <?php }else{ ?>
-                    class="btn btn-small btn-danger" 
+                    class="btn btn-warning btn-disable rounded_cornar" 
               <?php } ?>
                  id="<?php echo $id; ?>" onclick="statusUpdate(this.id,'<?php echo $segments[0];?>')">
                    <?php if($status==1)
                  { ?>
-                    <span id="<?php echo "ai".$id; ?>"><i class="fa fa-check-circle"></i>&nbsp;Active</span>
+                    <span id="<?php echo "ai".$id; ?>"><i class="glyphicon glyphicon-ok"></i>&nbsp;Active</span>
                <?php }else{ ?>
-                     <span id="<?php echo "ai".$id; ?>"><i class="fa fa-times-circle"></i>&nbsp;Inctive</span>
+                     <span id="<?php echo "ai".$id; ?>"><i class="glyphicon glyphicon-remove"></i>&nbsp;Inctive</span>
               <?php } ?></div>
           <?php } ?>
         </td>
@@ -303,12 +283,17 @@ function actionEdit($action = '', $id = '',$status='') {
     <?php
 }
 
+
+
+
+
+
+
 function actionHeading($action = '', $newaction='') {
             ?>
              <th class="no-sort"><?php echo htmlentities("Action"); ?></th>
             <?php
 }
-
 function menuDisplayByUser($result,$menuname='',$action='') {
  $userid_menu = Auth::id();
      $sql = DB::table('users')->select('*', 'users.id as id')->leftjoin('permissions', 'users.id', '=', 'permissions.user_id')
@@ -322,7 +307,6 @@ function menuDisplayByUser($result,$menuname='',$action='') {
         return $result = "false";
     }
 }
-
 function createButton($action = '', $title='',$order='',$order_id='',$privious='') {
    $segments = '';
    $segments = Request::segments();
@@ -334,16 +318,15 @@ function createButton($action = '', $title='',$order='',$order_id='',$privious='
    
   if(in_array('create',$array_menu) && in_array($segments[0],$array_menu)){
   ?>
-   <a href="<?php  echo route($segments[0].".".$action) ?>"><button class="btn btn-primary pull-right"><i class="fa fa-plus"></i>&nbsp;<?php echo $title; ?></button></a>
+   <a href="<?php  echo route($segments[0].".".$action) ?>"><button class="btn btn-default gray_btn rounded_cornar"><i class="fa fa-plus"></i>&nbsp;<?php echo $title; ?></button></a>
    <?php if($order!=''){ ?>
  </br>
  </br>
-      <button  class="btn btn-primary pull-left"  onclick="orderList('order_id','order_list')"><span class="fa fa-sort-desc"></span>&nbsp;Update Order</button>&nbsp;&nbsp;&nbsp;&nbsp;
+      <button  class="btn btn-default gray_btn rounded_cornar"  onclick="orderList('order_id','order_list')"><span class="fa fa-sort-desc"></span>&nbsp;Update Order</button>&nbsp;&nbsp;&nbsp;&nbsp;
  <?php 
    }
 }   
 }
-
 function pagePermissionView($result)
 {
     $segments = '';
@@ -353,7 +336,6 @@ function pagePermissionView($result)
     $sql = PermissionDetail::where('user_id', '=', $userid_menu)->first();
     return $result = $sql[$menu_dis];
 }
-
 function menuCreate($controllerName,$create='',$edit='',$view='',$id='',$controllerName_Value)
 { ?>
 

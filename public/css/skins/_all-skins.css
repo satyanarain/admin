@@ -37,10 +37,11 @@
     background-color: rgba(255, 255, 255, 0.1);
   }
   .skin-blue .main-header .navbar .dropdown-menu li a {
-    color: #fff;
+    color: #777;
   }
   .skin-blue .main-header .navbar .dropdown-menu li a:hover {
-    background: #367fa9;
+    background: #e1e3e9;
+    color: #333;
   }
 }
 .skin-blue .main-header .logo {

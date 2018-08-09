@@ -27,8 +27,8 @@
                  <a class="hiddenanchor" id="toregister"></a>
                  <a class="hiddenanchor" id="tologin"></a>
                  <div class="row">
-                    <h1 class="text-center"><img src="{{url('images/logo.png')}}" alt=""></h1>
-                     <div class="col-sm-6 col-md-4 col-md-offset-4">
+                    <h1 class="text-center"><img src="{{url('images/logo.png')}}" alt="" class="img-responsive" style="display:inline-block !important"></h1>
+                   
                          <div class="account-wall">
                              {{Html::image('images/guru.jpg','alt',array('class'=>'profile-img')),'class=profile-img'}}
                              <form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">
@@ -57,7 +57,7 @@
                                      <input type="submit" value="Login" class="btn login-btn"/> 
                                  </p>
                              </form>
-                         </div>
+                         
                      </div>
              </section>
          </div>
