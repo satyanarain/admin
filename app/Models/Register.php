@@ -1,8 +1,10 @@
 <?php
 namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
+use Laravel\Passport\HasApiTokens;
 class Register extends Model
 {
+     use HasApiTokens;
   /**
      * The database table used by the model.
      *
@@ -10,7 +12,7 @@ class Register extends Model
      */
     protected $table = 'registers';
    // protected $guarded = [];
-    public $guarded = ['_token'];
+    public $guarded = ['_token','c_password'];
     
     
 //        public function bustypes()
@@ -38,5 +40,8 @@ class Register extends Model
      *
      * @var array
      */
+    protected $hidden = [
+'password', 'remember_token',
+];
     
 }

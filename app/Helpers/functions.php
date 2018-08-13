@@ -275,18 +275,13 @@ function actionEdit($action = '', $id = '',$status='') {
                  { ?>
                     <span id="<?php echo "ai".$id; ?>"><i class="glyphicon glyphicon-ok"></i>&nbsp;Active</span>
                <?php }else{ ?>
-                     <span id="<?php echo "ai".$id; ?>"><i class="glyphicon glyphicon-remove"></i>&nbsp;Inctive</span>
+                     <span id="<?php echo "ai".$id; ?>"><i class="glyphicon glyphicon-remove"></i>&nbsp;Inactive</span>
               <?php } ?></div>
           <?php } ?>
         </td>
 
     <?php
 }
-
-
-
-
-
 
 
 function actionHeading($action = '', $newaction='') {

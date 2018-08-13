@@ -135,19 +135,7 @@ echo json_encode([
                     
                     @php $pem=menuDisplayByUser($result, 'users','view'); @endphp
                     @if($pem=='true')
-<!--                  <li @if($segments_var[0]=='users') class="treeview active" @else class="treeview" @endif>
-                        <a href="#">
-                            <i class="fa fa-user"></i> <span>User Management</span>
-                            <span class="pull-right-container">
-                                <i class="fa fa-angle-left pull-right"></i>
-                            </span>
-                        </a>
-                        <ul @if($segments_var[0]=='users' || $segments_var[0]=='changepasswords') class="treeview-menu active" style="display:block" @else class="treeview-menu" @endif>
-                            <li @if($segments_var[0]=='users') class="active" @endif><a href="{{route('users.index')}}">
-                                    <i class="fa fa-users"></i> @lang('menu.users.user') 
-                                </a></li>
-                          </ul>
-                    </li>-->
+
                     @endif
                     <li @if($segments_var[0]=='registers') class="treeview active" @else class="treeview" @endif>
                         <a href="#">

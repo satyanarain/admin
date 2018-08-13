@@ -1,7 +1,4 @@
 <?php
-
-use Illuminate\Http\Request;
-
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -12,10 +9,9 @@ use Illuminate\Http\Request;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-
-Route::group(['namespace'=>'Api\V1', 'prefix'=>'v1'], function(){
-	Route::post('shiftstart', 'ShiftStartController@store');
-	Route::get('getsqlitedbname', 'CommonController@getSqliteDbName');
-
-	Route::post('tripstart', 'TripStartController@store');
+Route::post('login', 'API\UserController@login');
+Route::post('register', 'API\UserController@register');
+//Route::resources('register', 'API\UserController@register');
+Route::group(['middleware' => 'auth:api'], function(){
+Route::post('details', 'API\UserController@details');
 });
