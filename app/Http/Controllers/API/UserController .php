@@ -52,7 +52,7 @@ $input = $request->all();
         $success['token'] =  $user->createToken('MyApp')-> accessToken; 
         $success['name'] =  $user->name;
         
-       return response()->json(['success'=>"Insert"], $this-> successStatus); 
+       return response()->json(['success'=>"Data Inserted"], $this-> successStatus); 
     }
 /** 
      * details api 
