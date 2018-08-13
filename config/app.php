@@ -189,7 +189,7 @@ return [
          App\Providers\ValidationServiceProvider::class,
          App\Services\Validation\ValidationServiceProvider::class,  
          Felixkiss\UniqueWithValidator\ServiceProvider::class,
-       // Laravel\Passport\PassportServiceProvider::class,
+        Laravel\Passport\PassportServiceProvider::class,
       ],
 
     /*
